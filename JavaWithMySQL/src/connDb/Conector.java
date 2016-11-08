@@ -85,8 +85,11 @@ public class Conector {
                 }
 
         }
-        catch (Exception e) {  System.out.println("Проблема в подготовке SQL-запроса!!!");
-            e.printStackTrace(); }
+        catch (Exception e) {
+            System.out.println("Проблема в подготовке SQL-запроса!!!");
+            e.printStackTrace();
+        }
+
         finally {
                 try {
                     if (conn != null) {
@@ -101,7 +104,32 @@ public class Conector {
 
     }
 
+    //Удаление всех записей из таблицы
+    public static void delAll (String sql)
+    {
+        Connection conn = null;
+        Statement stmt = null;
 
+        try
+        {
+            conn = getconnDb();
+            stmt = conn.createStatement();
+            stmt.execute(sql);
+        }
+        catch (SQLException e) {  System.out.println("Проблема в подготовке SQL-запроса!!!");
+            e.printStackTrace(); }
+        finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+                if (stmt != null) {
+                    stmt.close();
+                }
+            }
+            catch (SQLException e) { System.out.println("Проблема с закрытием conn или stmt!!!"); }
+        }
 
+    }
 
 }

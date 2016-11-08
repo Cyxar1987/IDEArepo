@@ -17,7 +17,7 @@ public class Main {
                 "PRIMARY KEY (number_id))";
         String sql2 = "INSERT INTO my_table (name, family, phone)" +
                       "VALUES" +
-                      "('Роман', 'Овсянников','+79058569220')";
+                      "('Roman', 'Ovsiannikov','+79058569220')";
 
         String sql3 = "DROP TABLE my_table";
 
@@ -29,12 +29,13 @@ public class Main {
 
         String sql5 = "SELECT* FROM my_table";
 
+        String sql6 = "DELETE FROM my_table";
 
-        try {
+
+            //Conector.myResult(sql5);
             //Conector.myQuery(sql2);
-            Conector.myResult(sql5);
-        }
-        catch (SQLException e)  {}
+            //Conector.delAll(sql6);
+
 
 
     }
