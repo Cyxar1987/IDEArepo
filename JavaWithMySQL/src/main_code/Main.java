@@ -1,13 +1,49 @@
 package main_code;
 
 import connDb.Conector;
+import geol_data.MonolitData;
 
+import javax.xml.bind.SchemaOutputResolver;
 import java.sql.SQLException;
 
 public class Main {
 
     public static void main(String[] args) {
 
+        MonolitData m1 = new MonolitData(1,2,3,4);
+
+        System.out.println(m1.getDensity_sg());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
         //   Переменная str - SQL-запрос
         String sql1 = "CREATE TABLE IF NOT EXISTS my_table " +
                 "(number_id INT NOT NULL AUTO_INCREMENT," +
@@ -37,6 +73,6 @@ public class Main {
             //Conector.delAll(sql6);
 
 
-
+*/
     }
 }
