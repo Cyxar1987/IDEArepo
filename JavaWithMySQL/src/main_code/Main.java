@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        MonolitData m1 = new MonolitData(1,2,3,4);
+        MonolitData m1 = new MonolitData(1,1,1, 2.1, 0.152);
 
         System.out.println(m1.getDensity_sg());
 

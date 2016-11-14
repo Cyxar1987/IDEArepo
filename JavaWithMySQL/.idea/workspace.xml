@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70f08737-c1a7-4bb3-be3e-c30a103a2c52" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/JavaWithMySQL/main_code/Main.class" afterPath="$PROJECT_DIR$/out/production/JavaWithMySQL/main_code/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/geol_data/MonolitData.java" afterPath="$PROJECT_DIR$/src/geol_data/MonolitData.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main_code/Main.java" afterPath="$PROJECT_DIR$/src/main_code/Main.java" />
@@ -30,8 +29,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main_code/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="238">
+              <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -42,18 +41,22 @@
       <file leaf-file-name="MonolitData.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/geol_data/MonolitData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
+            <state relative-caret-position="1955">
+              <caret line="199" column="9" selection-start-line="199" selection-start-column="9" selection-end-line="199" selection-end-column="9" />
               <folding>
                 <element signature="method#setNumbEl#0;class#MonolitData#0" expanded="false" />
                 <element signature="method#setDepth#0;class#MonolitData#0" expanded="false" />
-                <element signature="method#setMass#0;class#MonolitData#0" expanded="false" />
                 <element signature="method#setM#0;class#MonolitData#0" expanded="false" />
                 <element signature="method#setDensity#0;class#MonolitData#0" expanded="false" />
                 <element signature="method#setDensity_sg#0;class#MonolitData#0" expanded="false" />
                 <element signature="method#setDensity_4g#0;class#MonolitData#0" expanded="false" />
+                <element signature="method#setWater#0;class#MonolitData#0" expanded="false" />
+                <element signature="method#setDensity_08#0;class#MonolitData#0" expanded="false" />
+                <element signature="method#setPbit#0;class#MonolitData#0" expanded="false" />
                 <element signature="method#getMass#0;class#MonolitData#0" expanded="false" />
                 <element signature="method#SchetDensitySg#0;class#MonolitData#0" expanded="false" />
+                <element signature="method#SchetDensity_08#0;class#MonolitData#0" expanded="false" />
+                <element signature="method#SchetPbit#0;class#MonolitData#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -118,9 +121,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -198,7 +201,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="C:/Program Files/MySQL/mysql-connector-java-5.1.39/mysql-connector-java-5.1.39-bin.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -464,7 +467,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478698903312</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="начало положено (см. TODO)">
+      <created>1478860110484</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1478860110484</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -519,11 +529,12 @@
     <MESSAGE value="job with db" />
     <MESSAGE value="2 commit" />
     <MESSAGE value="описание монолита" />
-    <option name="LAST_COMMIT_MESSAGE" value="описание монолита" />
+    <MESSAGE value="начало положено (см. TODO)" />
+    <option name="LAST_COMMIT_MESSAGE" value="начало положено (см. TODO)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -532,6 +543,38 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main_code/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/geol_data/MonolitData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="method#setNumbEl#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setDepth#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setM#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setDensity#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setDensity_sg#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setDensity_4g#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setWater#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setDensity_08#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setPbit#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#getMass#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#SchetDensitySg#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#SchetDensity_08#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#SchetPbit#0;class#MonolitData#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main_code/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -549,13 +592,17 @@
           <folding>
             <element signature="method#setNumbEl#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDepth#0;class#MonolitData#0" expanded="false" />
-            <element signature="method#setMass#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setM#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_sg#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_4g#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setWater#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setDensity_08#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setPbit#0;class#MonolitData#0" expanded="false" />
             <element signature="method#getMass#0;class#MonolitData#0" expanded="false" />
             <element signature="method#SchetDensitySg#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#SchetDensity_08#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#SchetPbit#0;class#MonolitData#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -564,9 +611,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1173">
           <caret line="69" column="23" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
-          <folding>
-            <element signature="method#delAll#0;class#Conector#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -587,13 +631,17 @@
           <folding>
             <element signature="method#setNumbEl#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDepth#0;class#MonolitData#0" expanded="false" />
-            <element signature="method#setMass#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setM#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_sg#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_4g#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setWater#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setDensity_08#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setPbit#0;class#MonolitData#0" expanded="false" />
             <element signature="method#getMass#0;class#MonolitData#0" expanded="false" />
             <element signature="method#SchetDensitySg#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#SchetDensity_08#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#SchetPbit#0;class#MonolitData#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -602,9 +650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1173">
           <caret line="69" column="23" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
-          <folding>
-            <element signature="method#delAll#0;class#Conector#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -625,13 +670,17 @@
           <folding>
             <element signature="method#setNumbEl#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDepth#0;class#MonolitData#0" expanded="false" />
-            <element signature="method#setMass#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setM#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_sg#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_4g#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setWater#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setDensity_08#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setPbit#0;class#MonolitData#0" expanded="false" />
             <element signature="method#getMass#0;class#MonolitData#0" expanded="false" />
             <element signature="method#SchetDensitySg#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#SchetDensity_08#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#SchetPbit#0;class#MonolitData#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -640,9 +689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1173">
           <caret line="69" column="23" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
-          <folding>
-            <element signature="method#delAll#0;class#Conector#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -663,13 +709,17 @@
           <folding>
             <element signature="method#setNumbEl#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDepth#0;class#MonolitData#0" expanded="false" />
-            <element signature="method#setMass#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setM#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_sg#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_4g#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setWater#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setDensity_08#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setPbit#0;class#MonolitData#0" expanded="false" />
             <element signature="method#getMass#0;class#MonolitData#0" expanded="false" />
             <element signature="method#SchetDensitySg#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#SchetDensity_08#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#SchetPbit#0;class#MonolitData#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -678,9 +728,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1173">
           <caret line="69" column="23" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
-          <folding>
-            <element signature="method#delAll#0;class#Conector#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -701,13 +748,17 @@
           <folding>
             <element signature="method#setNumbEl#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDepth#0;class#MonolitData#0" expanded="false" />
-            <element signature="method#setMass#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setM#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_sg#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_4g#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setWater#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setDensity_08#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setPbit#0;class#MonolitData#0" expanded="false" />
             <element signature="method#getMass#0;class#MonolitData#0" expanded="false" />
             <element signature="method#SchetDensitySg#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#SchetDensity_08#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#SchetPbit#0;class#MonolitData#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -716,9 +767,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1173">
           <caret line="69" column="23" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
-          <folding>
-            <element signature="method#delAll#0;class#Conector#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -736,9 +784,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1173">
           <caret line="69" column="23" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
-          <folding>
-            <element signature="method#delAll#0;class#Conector#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -756,9 +801,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="method#delAll#0;class#Conector#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -776,9 +818,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1173">
           <caret line="69" column="13" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
-          <folding>
-            <element signature="method#delAll#0;class#Conector#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -803,9 +842,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="method#delAll#0;class#Conector#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -823,9 +859,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="method#delAll#0;class#Conector#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -843,9 +876,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="method#delAll#0;class#Conector#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -882,16 +912,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="818">
           <caret line="69" column="23" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
-          <folding>
-            <element signature="method#delAll#0;class#Conector#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main_code/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="238">
+          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -900,18 +927,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/geol_data/MonolitData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
+        <state relative-caret-position="1955">
+          <caret line="199" column="9" selection-start-line="199" selection-start-column="9" selection-end-line="199" selection-end-column="9" />
           <folding>
             <element signature="method#setNumbEl#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDepth#0;class#MonolitData#0" expanded="false" />
-            <element signature="method#setMass#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setM#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_sg#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_4g#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setWater#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setDensity_08#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#setPbit#0;class#MonolitData#0" expanded="false" />
             <element signature="method#getMass#0;class#MonolitData#0" expanded="false" />
             <element signature="method#SchetDensitySg#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#SchetDensity_08#0;class#MonolitData#0" expanded="false" />
+            <element signature="method#SchetPbit#0;class#MonolitData#0" expanded="false" />
           </folding>
         </state>
       </provider>
