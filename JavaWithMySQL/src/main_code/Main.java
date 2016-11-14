@@ -12,7 +12,7 @@ public class Main {
 
         MonolitData m1 = new MonolitData(1,1,1, 2.1, 0.152);
 
-        System.out.println(m1.getDensity_sg());
+        System.out.println(m1.getMass(0,5));
 
 
 

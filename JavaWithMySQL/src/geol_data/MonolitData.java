@@ -1,21 +1,14 @@
 package geol_data;
 
-import com.sun.xml.internal.bind.v2.TODO;
-
 /**
 
-        Класс описывает  сам монолит грунта и данные которые может дать монолит
+        Класс описывает монолит грунта и данные которые он может предоставить
+
 
     **/
 
 public class MonolitData {
 
-    private final static double st05 = 0.05;
-    private final static double st10 = 0.10;
-    private final static double st15 = 0.15;
-    private final static double st20 = 0.20;
-    private final static double st25 = 0.25;
-    private final static double st30 = 0.30;
 
         //  Номер ИГЭ в котором находится монолит
         private int numbEl;
@@ -25,7 +18,8 @@ public class MonolitData {
 
         //  массив данных с значениями относительной просадочности при нагрухках
         //  0,05 МПа    0,10 МПа   0,15 МПа   0,20 МПа   0,25 МПа   0,30 МПа
-        private double[] mass = new double[6];
+    private final static int j = 6;
+    private double[] mass = new double[j];
 
         //  Мощность просадочного слоя
         private double m;
@@ -48,8 +42,8 @@ public class MonolitData {
         //  Бытовое давление
         private double pbit;
 
-
-        public MonolitData(int n, float d, float m, double des, double w) {
+        //   Конструктор класса
+        public MonolitData(int n, double d, double m, double des, double w) {
             setNumbEl(n);
             setDepth(d);
             setM(m);
@@ -57,12 +51,9 @@ public class MonolitData {
             setWater(w);
             setDensity_sg(SchetDensitySg(density, water));
             setDensity_08(SchetDensity_08(density_4g, density_sg));
-            //setMass({1,2,3,4,5,6}); //TODO
             setPbit(SchetPbit(density_08, depth));
 
-
         }
-
 
         //  Сеттеры
 
@@ -80,9 +71,8 @@ public class MonolitData {
                 this.depth = 0;         //Сделать диалоговое окно с сообщенем о ошибке???
         }
 
-        public void setMass(double[] mass) {
-            //TODO
-            this.mass = mass;
+        public void setMass(int Param, double value) {
+            mass[Param] = value;
         }
 
         public void setM(double M) {
@@ -144,9 +134,9 @@ public class MonolitData {
             return depth;
         }
 
-        public double[] getMass() {
-            //TODO
-            return mass;
+        public double getMass(int a) {
+
+            return mass[a];
         }
 
         public double getM() {
