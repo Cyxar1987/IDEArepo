@@ -1,18 +1,14 @@
 package main_code;
 
-import connDb.Conector;
-import geol_data.MonolitData;
-
-import javax.xml.bind.SchemaOutputResolver;
-import java.sql.SQLException;
+import gui.Window;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        MonolitData m1 = new MonolitData(1,1,1, 2.1, 0.152);
+        new Window();
 
-        System.out.println(m1.getMass(0,5));
+
 
 
 
