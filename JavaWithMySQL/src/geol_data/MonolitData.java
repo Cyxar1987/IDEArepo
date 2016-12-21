@@ -190,4 +190,8 @@ public class MonolitData {
             pbit = d_08 * d;
             return pbit;
         }
+
+    // Проверка ветви
+
+        int al;
     }
