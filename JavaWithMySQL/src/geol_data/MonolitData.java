@@ -193,5 +193,5 @@ public class MonolitData {
 
     // Проверка ветви
 
-        int al;
+        int al1;
     }
