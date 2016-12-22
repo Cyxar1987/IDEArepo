@@ -1,9 +1,12 @@
 package gui;
 
+import geol_data.MonolitData;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.geom.Arc2D;
 
 /**
         *   Класс главного фрейма  *
@@ -19,13 +22,15 @@ public class Window {
 
         JFrame jfrm;
         JPanel panel;
-        JLabel igeLabel, depthLabel, mLabel, waterLabel, densityLabel, density4gLabel,
+        JLabel igeLabel, depthLabel, mLabel, waterLabel, densityLabel,
                prosLabel, label_005, label_010, label_015, label_020, label_025, label_030;
 
-        JTextField igeJtf, depthJtf, mJtf, waterJtf, densityJtf, density4gJtf,
+        JTextField igeJtf, depthJtf, mJtf, waterJtf, densityJtf,
                    jtf_005, jtf_010, jtf_015, jtf_020, jtf_025, jtf_030;
 
         JButton addButton, applyButton;
+
+        MonolitData monolit;
 
         //  Конструктор
         public Window()
@@ -48,7 +53,6 @@ public class Window {
             mLabel =new JLabel("moschnost");
             waterLabel =new JLabel("warter");
             densityLabel = new JLabel("density");
-            density4gLabel = new JLabel("density4g");
             label_005 = new JLabel("0.05 MPa");
             label_010 = new JLabel("0.10 MPa");
             label_015 = new JLabel("0.15 MPa");
@@ -57,12 +61,12 @@ public class Window {
             label_030 = new JLabel("0.30 MPa");
 
 
+
             igeJtf = new JTextField(3);
             depthJtf = new JTextField(3);
             mJtf = new JTextField(3);
             waterJtf = new JTextField(5);
             densityJtf = new JTextField(5);
-            density4gJtf = new JTextField(5);
             jtf_005 = new JTextField(5);
             jtf_010 = new JTextField(5);
             jtf_015 = new JTextField(5);
@@ -104,12 +108,6 @@ public class Window {
                     new Insets(5, 5, 5, 30), 0, 0));
 
 
-            jfrm.add(density4gLabel, new GridBagConstraints(5,0,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH,
-                    new Insets(5, 5, 5, 5), 0, 0));
-            jfrm.add(density4gJtf, new GridBagConstraints(5,1,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH,
-                    new Insets(5, 5, 5, 5), 0, 0));
-
-
             jfrm.add(prosLabel, new GridBagConstraints(0,2,5,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.CENTER,
                     new Insets(25, 1, 10, 1), 0, 0));
 
@@ -146,7 +144,36 @@ public class Window {
             jfrm.add(applyButton, new GridBagConstraints(4,5,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH,
                     new Insets(30, 5, 5, 35), 0, 0));
 
+
+            //  Обработка нажатия кнопок!!!  (ананимные внутренние классы)
+            addButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+
+                    int n = Integer.parseInt(igeJtf.getText());
+                    double depth = Double.parseDouble(depthJtf.getText());
+                    double m = Double.parseDouble(mJtf.getText());
+                    double wat = Double.parseDouble(waterJtf.getText());
+                    double dens = Double.parseDouble(densityJtf.getText());
+
+                    monolit = new MonolitData(n, depth, m, wat, dens);
+
+
+
+                }
+            });
+
+            applyButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    jfrm.setVisible(false);
+                }
+            });
+
             jfrm.setVisible(true);
+
+
+
 
         }
 

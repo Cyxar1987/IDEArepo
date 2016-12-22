@@ -57,7 +57,15 @@ public class MonolitData {
 
         }
 
-        //  Сеттеры
+        //  Конструктор пробный
+
+        public MonolitData(int n, double water) {
+            setNumbEl(n);
+            setWater(water);
+        }
+
+
+    //  Сеттеры
 
         public void setNumbEl(int NumbEl) {
             if (NumbEl > 0)
