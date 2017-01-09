@@ -1,6 +1,5 @@
 package gui;
 
-
 import javax.swing.*;
 
 public class Listmain {
@@ -26,12 +25,20 @@ public class Listmain {
     }
 
 
-    public boolean isClearDB()
-    {
+    public boolean isClearDB() {
         isClear = false;
 
         // TODO  Создать булевый метод на проверку наличичя данных в БД
 
         return isClear;
     }
+
+    public void addEl() {
+        //  TODO    Сделать метод добавления элемента в JList
+    }
+
+    public void removeEl(){
+        //  TODO    Сделать метод удаления элемента из JList
+    }
+
 }
