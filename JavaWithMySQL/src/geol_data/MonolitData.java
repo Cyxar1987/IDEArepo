@@ -43,8 +43,7 @@ public class MonolitData {
         private double pbit;
 
 
-
-        //   Конструктор класса
+        //   -----------Конструктор класса---------------
         public MonolitData(int n, double d, double m, double des, double w) {
             setNumbEl(n);
             setDepth(d);

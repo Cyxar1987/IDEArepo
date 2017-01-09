@@ -1,11 +1,10 @@
 package connDb;
 
-
 import java.sql.*;
 
 public class Conector {
 
-    public static final String url = "jdbc:mysql://localhost:3306/my_database";
+    public static final String url = "jdbc:mysql://localhost:3306/prosadka";
     public static final String user = "root";
     public static final String password = "root";
 
@@ -32,8 +31,6 @@ public class Conector {
             }
             return conn;
         }
-
-
 
     //Создание SQL-запроса
     public static void myQuery(String sql)
@@ -104,7 +101,7 @@ public class Conector {
 
     }
 
-    //Удаление всех записей из таблицы
+    //  Удаление всех записей из таблицы
     public static void delAll (String sql)
     {
         Connection conn = null;
