@@ -129,4 +129,50 @@ public class Conector {
 
     }
 
+
+            //  Проверка на наличие записей в таблице
+            //  true - таблица пуста
+            //  false - в таблице есть записи
+    public static boolean isEmptyDB(String sql)  {
+
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        boolean isEmpty = false;
+        try {
+
+            conn = getconnDb();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+
+            rs.last();
+            if ( rs.getRow() <=0 )
+            {
+                isEmpty = true;
+            }
+            else
+                {
+                    isEmpty = false;
+                }
+        }
+        catch (SQLException exp)
+        {
+            System.out.println("Чето не то в методе isEmptyDB !!!");
+        }
+        finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+                if (stmt != null) {
+                    stmt.close();
+                }
+            }
+            catch (SQLException e) { System.out.println("Проблема с закрытием conn или stmt!!!"); }
+        }
+        return isEmpty;
+
+
+    }
+
 }

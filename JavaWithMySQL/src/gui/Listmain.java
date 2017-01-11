@@ -1,40 +1,36 @@
 package gui;
 
+import connDb.Conector;
+
 import javax.swing.*;
 
 public class Listmain {
 
     JList myList;
     DefaultListModel listModel;
+    private final String QUESTION = "SELECT* FROM between_table";
 
-    boolean isClear;
 
     public Listmain (){
 
-        if  ( isClearDB() == true )
+        if  ( Conector.isEmptyDB(QUESTION) == true )    //  Таблица пуста, рисуем пустой JList
             {
-                //  Если данных в БД нет рисуем чистый JList
-                //TODO
+                listModel = new DefaultListModel();
+                myList = new JList(listModel);
             }
-        else
+        else    //  В таблице есть записи, рисуем JList из таблицы between_table
             {
-                //  Данные есть в БД рисуем JList из БД
                 //TODO
+
             }
 
     }
 
-
-    public boolean isClearDB() {
-        isClear = false;
-
-        // TODO  Создать булевый метод на проверку наличичя данных в БД
-
-        return isClear;
-    }
 
     public void addEl() {
         //  TODO    Сделать метод добавления элемента в JList
+        DefaultListModel dlm = (DefaultListModel) myList.getModel();
+        dlm.addElement();
     }
 
     public void removeEl(){

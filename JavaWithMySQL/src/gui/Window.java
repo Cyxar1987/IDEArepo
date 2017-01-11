@@ -12,8 +12,9 @@ import java.awt.geom.Arc2D;
 /**
         *   Класс главного фрейма  *
     **/
-public class Window {
 
+
+public class Window {
 
 
     /**
@@ -197,8 +198,8 @@ public class Window {
 
             applyButton.addActionListener(new ActionListener() {
                 @Override
-                public void actionPerformed(ActionEvent e) {
-
+                public void actionPerformed(ActionEvent e)
+                {
 
                 }
             });
