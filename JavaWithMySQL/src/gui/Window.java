@@ -30,12 +30,10 @@ public class Window {
         JTextField igeJtf, depthJtf, mJtf, waterJtf, densityJtf,
                    jtf_005, jtf_010, jtf_015, jtf_020, jtf_025, jtf_030;
 
-        JList list;
-        JScrollPane scrollPane;
-
         JButton addButton, applyButton;
 
         MonolitData monolit;
+        Listmain list;
 
 
 
@@ -65,7 +63,7 @@ public class Window {
             label_025 = new JLabel("0.25 MPa");
             label_030 = new JLabel("0.30 MPa");
 
-
+            list = new Listmain();
 
             igeJtf = new JTextField(3);
             depthJtf = new JTextField(3);
@@ -78,11 +76,6 @@ public class Window {
             jtf_020 = new JTextField(5);
             jtf_025 = new JTextField(5);
             jtf_030 = new JTextField(5);
-
-            list = new JList();
-            list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-            scrollPane = new JScrollPane(list);
-            scrollPane.setPreferredSize(new Dimension(100, 100));
 
 
             addButton = new JButton("add");
@@ -126,6 +119,8 @@ public class Window {
             Mainpanel.add(densityJtf, new GridBagConstraints(4,1,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH,
                     new Insets(5, 5, 5, 30), 0, 0));
 
+            Mainpanel.add(list, new GridBagConstraints(6,0,1,3,0,0,GridBagConstraints.NORTH,GridBagConstraints.BOTH,new Insets(5, 5, 5, 30), 0, 0));
+
 
             Mainpanel.add(prosLabel, new GridBagConstraints(0,2,5,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.CENTER,
                     new Insets(25, 1, 10, 1), 0, 0));
@@ -158,8 +153,6 @@ public class Window {
             Mainpanel.add(jtf_030, new GridBagConstraints(5,4,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH,
                     new Insets(5, 5, 5, 5), 0, 0));
 
-            Mainpanel.add(scrollPane, new GridBagConstraints(6,1,1,7,0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH,
-                    new Insets(5, 5, 5, 5), 0, 0));
             Mainpanel.add(addButton, new GridBagConstraints(3,5,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH,
                     new Insets(30, 5, 5, 35), 0, 0));
             Mainpanel.add(applyButton, new GridBagConstraints(4,5,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH,
@@ -179,13 +172,14 @@ public class Window {
                     double wat = Double.parseDouble(waterJtf.getText());
                     double dens = Double.parseDouble(densityJtf.getText());
 
-                    monolit = new MonolitData(n, depth, m, dens, wat);
 
                     String q = "INSERT INTO between_table (ige, depth, mochnost, water, density)" +
                             "VALUES" +
                             "(" + n + ", " + depth + ", " + m + ", " + wat + "," + dens + " )";
 
                     Conector.myQuery(q);
+
+                    list.addEl(depthJtf.getText());
 
                     igeJtf.setText("");
                     depthJtf.setText("");
