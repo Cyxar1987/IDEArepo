@@ -172,14 +172,13 @@ public class Window {
                     double wat = Double.parseDouble(waterJtf.getText());
                     double dens = Double.parseDouble(densityJtf.getText());
 
-
                     String q = "INSERT INTO between_table (ige, depth, mochnost, water, density)" +
                             "VALUES" +
                             "(" + n + ", " + depth + ", " + m + ", " + wat + "," + dens + " )";
 
                     Conector.myQuery(q);
 
-                    list.addEl(depthJtf.getText());
+                    list.addUppdateList();
 
                     igeJtf.setText("");
                     depthJtf.setText("");
