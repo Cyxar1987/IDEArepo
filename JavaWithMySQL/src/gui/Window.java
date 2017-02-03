@@ -30,7 +30,7 @@ public class Window {
         JTextField igeJtf, depthJtf, mJtf, waterJtf, densityJtf,
                    jtf_005, jtf_010, jtf_015, jtf_020, jtf_025, jtf_030;
 
-        JButton addButton, applyButton;
+        JButton addButton, applyButton, calculationButton;
 
         MonolitData monolit;
         Listmain list;
@@ -80,6 +80,7 @@ public class Window {
 
             addButton = new JButton("add");
             applyButton = new JButton("apply");
+            calculationButton = new JButton("Calculation");
 
 
             Mainpanel = new JPanel(gb);
@@ -157,6 +158,8 @@ public class Window {
                     new Insets(30, 5, 5, 35), 0, 0));
             Mainpanel.add(applyButton, new GridBagConstraints(4,5,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH,
                     new Insets(30, 5, 5, 35), 0, 0));
+            Mainpanel.add(calculationButton, new GridBagConstraints(3,6,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH,
+                    new Insets(30, 5, 5, 35), 0, 0));
 
 
             jfrm.setVisible(true);
@@ -197,6 +200,12 @@ public class Window {
                 }
             });
 
+            calculationButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+
+                }
+            });
 
         }
 
