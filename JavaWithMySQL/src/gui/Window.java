@@ -27,10 +27,10 @@ public class Window {
         JLabel igeLabel, depthLabel, mLabel, waterLabel, densityLabel,
                prosLabel, label_005, label_010, label_015, label_020, label_025, label_030;
 
-        JTextField igeJtf, depthJtf, mJtf, waterJtf, densityJtf,
+         static JTextField igeJtf, depthJtf, mJtf, waterJtf, densityJtf,
                    jtf_005, jtf_010, jtf_015, jtf_020, jtf_025, jtf_030;
 
-        JButton addButton, applyButton, calculationButton;
+        JButton addButton, applyButton, calculationButton, edittButton;
 
         MonolitData monolit;
         Listmain list;
@@ -81,6 +81,7 @@ public class Window {
             addButton = new JButton("add");
             applyButton = new JButton("apply");
             calculationButton = new JButton("Calculation");
+            edittButton = new JButton("Edit");
 
 
             Mainpanel = new JPanel(gb);
@@ -160,6 +161,8 @@ public class Window {
                     new Insets(30, 5, 5, 35), 0, 0));
             Mainpanel.add(calculationButton, new GridBagConstraints(3,6,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH,
                     new Insets(30, 5, 5, 35), 0, 0));
+            Mainpanel.add(edittButton, new GridBagConstraints(1,5,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH,
+                    new Insets(30, 5, 5, 35), 0, 0));
 
 
             jfrm.setVisible(true);
@@ -201,6 +204,13 @@ public class Window {
             });
 
             calculationButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+
+                }
+            });
+
+            edittButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
 
