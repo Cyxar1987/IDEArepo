@@ -30,7 +30,7 @@ public class Listmain {
     public void addEl() {
         //  TODO    Сделать метод добавления элемента в JList
         DefaultListModel dlm = (DefaultListModel) myList.getModel();
-        dlm.addElement();
+        //      dlm.addElement();
     }
 
     public void removeEl(){
