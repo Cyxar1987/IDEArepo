@@ -1,23 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="70f08737-c1a7-4bb3-be3e-c30a103a2c52" name="Default" comment="хрень">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../IntelliLang.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../_windows/git.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../_windows/keymap.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../_windows/laf.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../_windows/path.macros.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../debugger.renderers.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../debugger.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../diff.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../gradle.run.settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../inspection/Default.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../mavenVersion.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ui.lnf.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../web-browsers.xml" afterPath="" />
+    <list default="true" id="70f08737-c1a7-4bb3-be3e-c30a103a2c52" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/Listmain.java" afterPath="$PROJECT_DIR$/src/gui/Listmain.java" />
     </list>
     <ignored path="JavaWithMySQL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,33 +43,13 @@
               <folding>
                 <element signature="method#setNumbEl#0;class#MonolitData#0" expanded="false" />
                 <element signature="method#setDepth#0;class#MonolitData#0" expanded="false" />
-                <element signature="e#2112#2113#0" expanded="false" />
-                <element signature="e#2155#2156#0" expanded="false" />
                 <element signature="method#setM#0;class#MonolitData#0" expanded="false" />
                 <element signature="method#setDensity#0;class#MonolitData#0" expanded="false" />
                 <element signature="method#setDensity_sg#0;class#MonolitData#0" expanded="false" />
                 <element signature="method#setDensity_4g#0;class#MonolitData#0" expanded="false" />
                 <element signature="method#setWater#0;class#MonolitData#0" expanded="false" />
                 <element signature="method#setDensity_08#0;class#MonolitData#0" expanded="false" />
-                <element signature="e#3384#3385#0" expanded="false" />
-                <element signature="e#3421#3422#0" expanded="false" />
-                <element signature="e#3457#3458#0" expanded="false" />
-                <element signature="e#3493#3494#0" expanded="false" />
                 <element signature="method#getMass#0;class#MonolitData#0" expanded="false" />
-                <element signature="e#3604#3605#0" expanded="false" />
-                <element signature="e#3636#3637#0" expanded="false" />
-                <element signature="e#3674#3675#0" expanded="false" />
-                <element signature="e#3712#3713#0" expanded="false" />
-                <element signature="e#3753#3754#0" expanded="false" />
-                <element signature="e#3794#3795#0" expanded="false" />
-                <element signature="e#3835#3836#0" expanded="false" />
-                <element signature="e#3876#3877#0" expanded="false" />
-                <element signature="e#3917#3918#0" expanded="false" />
-                <element signature="e#3954#3955#0" expanded="false" />
-                <element signature="e#3990#3991#0" expanded="false" />
-                <element signature="e#4022#4023#0" expanded="false" />
-                <element signature="e#4057#4058#0" expanded="false" />
-                <element signature="e#4088#4089#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -216,7 +181,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -367,8 +332,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -745,7 +710,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486448489875</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="кнопка edit">
+      <created>1486641263078</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1486641263078</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView">
@@ -814,7 +786,8 @@
     <MESSAGE value="TODO слушатель событий для JList" />
     <MESSAGE value="TODO JTable" />
     <MESSAGE value="хрень" />
-    <option name="LAST_COMMIT_MESSAGE" value="хрень" />
+    <MESSAGE value="кнопка edit" />
+    <option name="LAST_COMMIT_MESSAGE" value="кнопка edit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -842,33 +815,13 @@
           <folding>
             <element signature="method#setNumbEl#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDepth#0;class#MonolitData#0" expanded="false" />
-            <element signature="e#2112#2113#0" expanded="false" />
-            <element signature="e#2155#2156#0" expanded="false" />
             <element signature="method#setM#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_sg#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_4g#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setWater#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_08#0;class#MonolitData#0" expanded="false" />
-            <element signature="e#3384#3385#0" expanded="false" />
-            <element signature="e#3421#3422#0" expanded="false" />
-            <element signature="e#3457#3458#0" expanded="false" />
-            <element signature="e#3493#3494#0" expanded="false" />
             <element signature="method#getMass#0;class#MonolitData#0" expanded="false" />
-            <element signature="e#3604#3605#0" expanded="false" />
-            <element signature="e#3636#3637#0" expanded="false" />
-            <element signature="e#3674#3675#0" expanded="false" />
-            <element signature="e#3712#3713#0" expanded="false" />
-            <element signature="e#3753#3754#0" expanded="false" />
-            <element signature="e#3794#3795#0" expanded="false" />
-            <element signature="e#3835#3836#0" expanded="false" />
-            <element signature="e#3876#3877#0" expanded="false" />
-            <element signature="e#3917#3918#0" expanded="false" />
-            <element signature="e#3954#3955#0" expanded="false" />
-            <element signature="e#3990#3991#0" expanded="false" />
-            <element signature="e#4022#4023#0" expanded="false" />
-            <element signature="e#4057#4058#0" expanded="false" />
-            <element signature="e#4088#4089#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -895,33 +848,13 @@
           <folding>
             <element signature="method#setNumbEl#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDepth#0;class#MonolitData#0" expanded="false" />
-            <element signature="e#2112#2113#0" expanded="false" />
-            <element signature="e#2155#2156#0" expanded="false" />
             <element signature="method#setM#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_sg#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_4g#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setWater#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_08#0;class#MonolitData#0" expanded="false" />
-            <element signature="e#3384#3385#0" expanded="false" />
-            <element signature="e#3421#3422#0" expanded="false" />
-            <element signature="e#3457#3458#0" expanded="false" />
-            <element signature="e#3493#3494#0" expanded="false" />
             <element signature="method#getMass#0;class#MonolitData#0" expanded="false" />
-            <element signature="e#3604#3605#0" expanded="false" />
-            <element signature="e#3636#3637#0" expanded="false" />
-            <element signature="e#3674#3675#0" expanded="false" />
-            <element signature="e#3712#3713#0" expanded="false" />
-            <element signature="e#3753#3754#0" expanded="false" />
-            <element signature="e#3794#3795#0" expanded="false" />
-            <element signature="e#3835#3836#0" expanded="false" />
-            <element signature="e#3876#3877#0" expanded="false" />
-            <element signature="e#3917#3918#0" expanded="false" />
-            <element signature="e#3954#3955#0" expanded="false" />
-            <element signature="e#3990#3991#0" expanded="false" />
-            <element signature="e#4022#4023#0" expanded="false" />
-            <element signature="e#4057#4058#0" expanded="false" />
-            <element signature="e#4088#4089#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -948,33 +881,13 @@
           <folding>
             <element signature="method#setNumbEl#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDepth#0;class#MonolitData#0" expanded="false" />
-            <element signature="e#2112#2113#0" expanded="false" />
-            <element signature="e#2155#2156#0" expanded="false" />
             <element signature="method#setM#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_sg#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_4g#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setWater#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_08#0;class#MonolitData#0" expanded="false" />
-            <element signature="e#3384#3385#0" expanded="false" />
-            <element signature="e#3421#3422#0" expanded="false" />
-            <element signature="e#3457#3458#0" expanded="false" />
-            <element signature="e#3493#3494#0" expanded="false" />
             <element signature="method#getMass#0;class#MonolitData#0" expanded="false" />
-            <element signature="e#3604#3605#0" expanded="false" />
-            <element signature="e#3636#3637#0" expanded="false" />
-            <element signature="e#3674#3675#0" expanded="false" />
-            <element signature="e#3712#3713#0" expanded="false" />
-            <element signature="e#3753#3754#0" expanded="false" />
-            <element signature="e#3794#3795#0" expanded="false" />
-            <element signature="e#3835#3836#0" expanded="false" />
-            <element signature="e#3876#3877#0" expanded="false" />
-            <element signature="e#3917#3918#0" expanded="false" />
-            <element signature="e#3954#3955#0" expanded="false" />
-            <element signature="e#3990#3991#0" expanded="false" />
-            <element signature="e#4022#4023#0" expanded="false" />
-            <element signature="e#4057#4058#0" expanded="false" />
-            <element signature="e#4088#4089#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1001,33 +914,13 @@
           <folding>
             <element signature="method#setNumbEl#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDepth#0;class#MonolitData#0" expanded="false" />
-            <element signature="e#2112#2113#0" expanded="false" />
-            <element signature="e#2155#2156#0" expanded="false" />
             <element signature="method#setM#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_sg#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_4g#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setWater#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_08#0;class#MonolitData#0" expanded="false" />
-            <element signature="e#3384#3385#0" expanded="false" />
-            <element signature="e#3421#3422#0" expanded="false" />
-            <element signature="e#3457#3458#0" expanded="false" />
-            <element signature="e#3493#3494#0" expanded="false" />
             <element signature="method#getMass#0;class#MonolitData#0" expanded="false" />
-            <element signature="e#3604#3605#0" expanded="false" />
-            <element signature="e#3636#3637#0" expanded="false" />
-            <element signature="e#3674#3675#0" expanded="false" />
-            <element signature="e#3712#3713#0" expanded="false" />
-            <element signature="e#3753#3754#0" expanded="false" />
-            <element signature="e#3794#3795#0" expanded="false" />
-            <element signature="e#3835#3836#0" expanded="false" />
-            <element signature="e#3876#3877#0" expanded="false" />
-            <element signature="e#3917#3918#0" expanded="false" />
-            <element signature="e#3954#3955#0" expanded="false" />
-            <element signature="e#3990#3991#0" expanded="false" />
-            <element signature="e#4022#4023#0" expanded="false" />
-            <element signature="e#4057#4058#0" expanded="false" />
-            <element signature="e#4088#4089#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1289,33 +1182,13 @@
           <folding>
             <element signature="method#setNumbEl#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDepth#0;class#MonolitData#0" expanded="false" />
-            <element signature="e#2112#2113#0" expanded="false" />
-            <element signature="e#2155#2156#0" expanded="false" />
             <element signature="method#setM#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_sg#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_4g#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setWater#0;class#MonolitData#0" expanded="false" />
             <element signature="method#setDensity_08#0;class#MonolitData#0" expanded="false" />
-            <element signature="e#3384#3385#0" expanded="false" />
-            <element signature="e#3421#3422#0" expanded="false" />
-            <element signature="e#3457#3458#0" expanded="false" />
-            <element signature="e#3493#3494#0" expanded="false" />
             <element signature="method#getMass#0;class#MonolitData#0" expanded="false" />
-            <element signature="e#3604#3605#0" expanded="false" />
-            <element signature="e#3636#3637#0" expanded="false" />
-            <element signature="e#3674#3675#0" expanded="false" />
-            <element signature="e#3712#3713#0" expanded="false" />
-            <element signature="e#3753#3754#0" expanded="false" />
-            <element signature="e#3794#3795#0" expanded="false" />
-            <element signature="e#3835#3836#0" expanded="false" />
-            <element signature="e#3876#3877#0" expanded="false" />
-            <element signature="e#3917#3918#0" expanded="false" />
-            <element signature="e#3954#3955#0" expanded="false" />
-            <element signature="e#3990#3991#0" expanded="false" />
-            <element signature="e#4022#4023#0" expanded="false" />
-            <element signature="e#4057#4058#0" expanded="false" />
-            <element signature="e#4088#4089#0" expanded="false" />
           </folding>
         </state>
       </provider>
