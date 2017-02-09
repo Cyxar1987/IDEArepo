@@ -25,7 +25,7 @@ public class Listmain extends JPanel {
 
     ArrayList<Double> arr;
 
-
+    // конструктор класса
     public Listmain () {
 
         super();
@@ -62,8 +62,7 @@ public class Listmain extends JPanel {
 
           }
 
-          /**   Сделать отображение всех данных монолита по щелчку выбранной глубины в JList*/
-          //    TODO
+          /**   Отображение всех данных монолита по щелчку выбранной глубины в JList    */
           myList.addListSelectionListener(new ListSelectionListener() {
               @Override
               public void valueChanged(ListSelectionEvent e) {
@@ -109,23 +108,12 @@ public class Listmain extends JPanel {
                             }
 
                         }
-
-
-
-                      /*
-
-                      */
-
-
-
-
-
                   }
               }
           });
     }
 
-
+    // Добавление элемента в JList
     public void addUppdateList()
     {
         arr = new ArrayList<Double>();
@@ -136,7 +124,7 @@ public class Listmain extends JPanel {
         dlm.clear();
 
         for (Double d : arr)
-            { dlm.addElement(String.valueOf(d)); }
+            { dlm.addElement(d); }
     }
 
     //  метод для получения из БД массива глубин (отсортированный)
