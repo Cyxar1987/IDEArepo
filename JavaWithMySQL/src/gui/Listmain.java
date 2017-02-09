@@ -7,6 +7,7 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
+import java.awt.event.WindowListener;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -66,15 +67,53 @@ public class Listmain extends JPanel {
           myList.addListSelectionListener(new ListSelectionListener() {
               @Override
               public void valueChanged(ListSelectionEvent e) {
-                  int index = myList.getSelectedIndex();
+                  if (!e.getValueIsAdjusting()) {
+                      int index = myList.getSelectedIndex();
 
-                  if ( index != -1)
-                  {
-                      System.out.print(arr.get(index));
+                      if ( index != -1)
+                        {
+                            String VIEW_SELECTION_INDEX = "SELECT * FROM between_table " +
+                                    "WHERE depth = " + arr.get(index);
+                          System.out.println(arr.get(index));
+
+                            //  Считыываем данные с БД
+                            Connection conn = null;
+                            Statement stmt = null;
+                            ResultSet rs = null;
+
+                            try {
+                                conn = Conector.getconnDb();
+                                stmt = conn.createStatement();
+                                rs = stmt.executeQuery(VIEW_SELECTION_INDEX);
+
+                                //  Заполняем массив данными о глубинах (depth) из БД
+                                while (rs.next()) {
+
+                                    Window.igeJtf.setText(String.valueOf(rs.getInt("ige")));
+                                    Window.depthJtf.setText(String.valueOf(rs.getDouble("depth")));
+                                    Window.mJtf.setText(String.valueOf(rs.getDouble("mochnost")));
+                                    Window.waterJtf.setText(String.valueOf(rs.getDouble("water")));
+                                    Window.densityJtf.setText(String.valueOf(rs.getDouble("density")));
+
+                                }
+                            }
+                            catch (SQLException sql) {System.out.println("Не получается построить JList  из БД!!!");}
+
+                            finally {
+                                try {
+                                    if (conn != null) {conn.close();}
+                                    if (stmt != null) {stmt.close();}
+                                    if (rs != null) {rs.close();}
+                                }
+                                catch (SQLException exp) { System.out.println("Ошибка с закрытием conn, stmt, rs");}
+                            }
+
+                        }
+
+
 
                       /*
-                      String VIEW_SELECTION_INDEX = "SELECT * FROM between_table " +
-                              "WHERE depth = " + arr.get(index);
+
                       */
 
 
