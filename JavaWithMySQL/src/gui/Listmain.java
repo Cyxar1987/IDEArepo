@@ -22,7 +22,6 @@ public class Listmain extends JPanel {
     private final String QUESTION = "SELECT* FROM between_table";
     private final String IF_NOT_EMPTY = "SELECT depth FROM between_table";
 
-
     ArrayList<Double> arr;
 
     // конструктор класса
@@ -61,7 +60,6 @@ public class Listmain extends JPanel {
             }
 
           }
-
           /**   Отображение всех данных монолита по щелчку выбранной глубины в JList    */
           myList.addListSelectionListener(new ListSelectionListener() {
               @Override
@@ -164,4 +162,7 @@ public class Listmain extends JPanel {
 
         return arrDepth;
     }
+
+    /**     Написать метод для редактирования данных монолита при нажатии на глубину в JList  */
+    //  TODO
 }
