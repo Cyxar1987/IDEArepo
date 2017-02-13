@@ -37,7 +37,7 @@ public class Listmain extends JPanel {
             myList = new JList(dflm);
             myList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
             scrollPane = new JScrollPane(myList);
-            scrollPane.setPreferredSize(new Dimension(80,80));
+            scrollPane.setPreferredSize(new Dimension(100,130));
             add(scrollPane);
 
         }
@@ -52,16 +52,16 @@ public class Listmain extends JPanel {
            myList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
            scrollPane = new JScrollPane(myList);
-           scrollPane.setPreferredSize(new Dimension(100,120));
+           scrollPane.setPreferredSize(new Dimension(100,140));
            add(scrollPane);
 
             for (Double d : arr) {
                 dflm.addElement(d);
             }
-
           }
+
           /**   Отображение всех данных монолита по щелчку выбранной глубины в JList    */
-          myList.addListSelectionListener(new ListSelectionListener() {
+          myList.addListSelectionListener(new ListSelectionListener() {        //   Слушатель событий для JList
               @Override
               public void valueChanged(ListSelectionEvent e) {
                   if (!e.getValueIsAdjusting()) {
@@ -82,17 +82,18 @@ public class Listmain extends JPanel {
                                 conn = Conector.getconnDb();
                                 stmt = conn.createStatement();
                                 rs = stmt.executeQuery(VIEW_SELECTION_INDEX);
+                                    while (rs.next()) {
+                                        Window.igeJtf.setText(String.valueOf(rs.getInt("ige")));
+                                        Window.depthJtf.setText(String.valueOf(rs.getDouble("depth")));
+                                        Window.mJtf.setText(String.valueOf(rs.getDouble("mochnost")));
+                                        Window.waterJtf.setText(String.valueOf(rs.getDouble("water")));
+                                        Window.densityJtf.setText(String.valueOf(rs.getDouble("density")));
 
-                                //  Заполняем массив данными о глубинах (depth) из БД
-                                while (rs.next()) {
+                                        //  Cохраняем ID записи в статическую пременную
+                                        Window.IdSelectDepth = rs.getInt("ID");
+                                        System.out.println(Window.IdSelectDepth);
+                                    }
 
-                                    Window.igeJtf.setText(String.valueOf(rs.getInt("ige")));
-                                    Window.depthJtf.setText(String.valueOf(rs.getDouble("depth")));
-                                    Window.mJtf.setText(String.valueOf(rs.getDouble("mochnost")));
-                                    Window.waterJtf.setText(String.valueOf(rs.getDouble("water")));
-                                    Window.densityJtf.setText(String.valueOf(rs.getDouble("density")));
-
-                                }
                             }
                             catch (SQLException sql) {System.out.println("Не получается построить JList  из БД!!!");}
 
@@ -125,7 +126,7 @@ public class Listmain extends JPanel {
             { dlm.addElement(d); }
     }
 
-    //  метод для получения из БД массива глубин (отсортированный)
+    //  Получения из БД массива глубин (отсортированный)
     private ArrayList getDepthArr ()
     {
         //  Считыываем данные с БД
@@ -163,6 +164,4 @@ public class Listmain extends JPanel {
         return arrDepth;
     }
 
-    /**     Написать метод для редактирования данных монолита при нажатии на глубину в JList  */
-    //  TODO
 }
