@@ -35,6 +35,8 @@ public class Window {
         MonolitData monolit;
         Listmain list;
 
+        public static int IdSelectDepth;
+
 
 
         //  Конструктор
@@ -85,7 +87,7 @@ public class Window {
 
 
             Mainpanel = new JPanel(gb);
-            Mainpanel.setBackground(Color.GREEN);
+            Mainpanel.setBackground(Color.GRAY);
             Mainpanel.setPreferredSize(new Dimension(800, 450));
 
 
@@ -121,7 +123,7 @@ public class Window {
             Mainpanel.add(densityJtf, new GridBagConstraints(4,1,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH,
                     new Insets(5, 5, 5, 30), 0, 0));
 
-            Mainpanel.add(list, new GridBagConstraints(6,0,1,3,0,0,GridBagConstraints.NORTH,GridBagConstraints.BOTH,new Insets(5, 5, 5, 30), 0, 0));
+            Mainpanel.add(list, new GridBagConstraints(6,0,2,5,0,0,GridBagConstraints.NORTH,GridBagConstraints.BOTH,new Insets(5, 15, 5, 5), 0, 0));
 
 
             Mainpanel.add(prosLabel, new GridBagConstraints(0,2,5,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.CENTER,
@@ -157,12 +159,12 @@ public class Window {
 
             Mainpanel.add(addButton, new GridBagConstraints(3,5,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH,
                     new Insets(30, 5, 5, 35), 0, 0));
-            Mainpanel.add(applyButton, new GridBagConstraints(4,5,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH,
-                    new Insets(30, 5, 5, 35), 0, 0));
+            Mainpanel.add(applyButton, new GridBagConstraints(7,5,1,1,0,0,GridBagConstraints.EAST,GridBagConstraints.EAST,
+                    new Insets(1, 1, 1, 20), 0, 0));
             Mainpanel.add(calculationButton, new GridBagConstraints(3,6,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH,
                     new Insets(30, 5, 5, 35), 0, 0));
-            Mainpanel.add(edittButton, new GridBagConstraints(1,5,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH,
-                    new Insets(30, 5, 5, 35), 0, 0));
+            Mainpanel.add(edittButton, new GridBagConstraints(6,5,1,1,0,0,GridBagConstraints.WEST,GridBagConstraints.WEST,
+                    new Insets(1, 40, 1, 5), 0, 0));
 
 
             jfrm.setVisible(true);
@@ -199,25 +201,44 @@ public class Window {
                 @Override
                 public void actionPerformed(ActionEvent e)
                 {
+                    if (calculationButton.isEnabled() == false && addButton.isEnabled() == false) {
+                        int n = Integer.parseInt(igeJtf.getText());
+                        double depth = Double.parseDouble(depthJtf.getText());
+                        double m = Double.parseDouble(mJtf.getText());
+                        double wat = Double.parseDouble(waterJtf.getText());
+                        double dens = Double.parseDouble(densityJtf.getText());
 
+                        //  uppdate-запрос на изменение данных
+                        String uppdateSQL = "UPDATE between_table " +
+                                "SET ige = " + n + ", depth = " + depth + ", mochnost = " + m + ", water = " + wat + ", density = " + dens + " " +
+                                "WHERE ID = " + IdSelectDepth;
+
+                        Conector.myQuery(uppdateSQL);
+
+                        calculationButton.setEnabled(true);
+                        addButton.setEnabled(true);
+                    }
                 }
             });
 
             calculationButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    //TODO
 
                 }
             });
 
+            //  Кнопка редактированя исходных данных при выбранной глубине
             edittButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+
+                    calculationButton.setEnabled(false);
+                    addButton.setEnabled(false);
 
                 }
             });
 
         }
-
-
 }

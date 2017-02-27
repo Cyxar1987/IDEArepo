@@ -50,9 +50,6 @@ public class ResultTable extends JFrame {
         setLayout(fl);
 
 
-
-
-
     }
 
     private ArrayList arrCollumsHeader()
