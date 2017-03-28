@@ -1,5 +1,6 @@
 package main_code;
 
+
 import gui.Window;
 
 public class Main {
@@ -7,38 +8,6 @@ public class Main {
     public static void main(String[] args) {
 
         new Window();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
         //   Переменная str - SQL-запрос
