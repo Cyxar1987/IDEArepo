@@ -16,7 +16,7 @@ public class myTableModel implements TableModel {
 
     @Override
     public int getColumnCount() {
-        return 0;
+        return tableHeaders.length;
     }
 
     @Override
@@ -60,15 +60,12 @@ public class myTableModel implements TableModel {
 
     @Override
     public Class<?> getColumnClass(int columnIndex) {
-        switch (columnIndex) {
-            case 0:
-                return Integer.class;
-            case 1:
-                return Double.class;
-            case 2:
-                return Double.class;
-        }
-        return null;
+
+        if (columnIndex == 0)
+            return Integer.class;
+        else
+            return Double.class;
+
     }
 
     @Override

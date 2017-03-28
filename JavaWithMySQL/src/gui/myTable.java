@@ -11,15 +11,9 @@ import java.util.ArrayList;
 
 public class myTable extends JFrame {
 
-    private final String [] tableHeaders = {"Number ige", "Depth monolit", "Work load 0.05", "Work load 0.10",
-                                            "Work load 0.15", "Work load 0.20","Work load 0.25", "Work load 0.30",
-                                            "Starting pressure", "Mochnost pros sloia", "Density SG", "Density real",
-                                            "Density 0.8", "Litology pressure", "Otnosit prossadka", "Prosadka"};
-    private final String [] tableData = {"1", "1", "0.003", "0.004", "0.006", "0.008","0.010", "0.011",
-                                        "0.25", "1", "1.29", "1.64", "1.88", "0.0254", "0.00548", "0"};
-    private DefaultTableModel myTableModel;
+    private myTableModel tm;
 
-    JPanel panel;
+    private JPanel panel;
 
     private JTable myTable;
     private JScrollPane scrollPane;
@@ -39,11 +33,13 @@ public class myTable extends JFrame {
 
         setLayout(bd);
 
-        myTableModel = new DefaultTableModel();
+        tm = new myTableModel();
+        /*
         myTableModel.setColumnIdentifiers(tableHeaders); // Задание заголовков массивом
         myTableModel.addRow(tableData); // Добавление строки с данными
-
-        myTable = new JTable(myTableModel);
+        */
+        myTable = new JTable(tm);
+        myTable.getTableHeader().setFont(new Font("Verdana", Font.ITALIC, 10));
         scrollPane = new JScrollPane(myTable);
         add(scrollPane, BorderLayout.CENTER);
 
