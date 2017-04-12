@@ -1,28 +1,39 @@
 package gui;
 
 
+import connDb.Conector;
+import geol_data.MonolitData;
+import geol_data.MonolitDataComparator;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.*;
 
 /** Класс описывающий создание таблицы и  проведения расчета в ней просадки от собственного веса
  *  Данные будут получаться из БД*/
 
 public class myTable extends JFrame {
 
-    private final String [] tableHeaders = {"Number ige", "Depth monolit", "Work load 0.05", "Work load 0.10",
-                                            "Work load 0.15", "Work load 0.20","Work load 0.25", "Work load 0.30",
-                                            "Starting pressure", "Mochnost pros sloia", "Density SG", "Density real",
-                                            "Density 0.8", "Litology pressure", "Otnosit prossadka", "Prosadka"};
-    private final String [] tableData = {"1", "1", "0.003", "0.004", "0.006", "0.008","0.010", "0.011",
-                                        "0.25", "1", "1.29", "1.64", "1.88", "0.0254", "0.00548", "0"};
-    private DefaultTableModel myTableModel;
+    private myTableModel mtm;
 
     JPanel panel;
 
     private JTable myTable;
     private JScrollPane scrollPane;
+
+    //  SQL-запрос на получение всех данных из таблицы between_table
+    private final String DATA = "SELECT * FROM between_table";
+
+    //  Ссылка на класс для сортировки объектов MonolitData
+    MonolitDataComparator comparator;
+
+    // Массив с полями таблицы полученный из БД
+    private ArrayList<MonolitData> arrTable;
 
     //  Конструктор
     public myTable() {
@@ -35,19 +46,57 @@ public class myTable extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         BorderLayout bd = new BorderLayout();
 
-        //GridBagLayout gb = new GridBagLayout();
-
         setLayout(bd);
 
-        myTableModel = new DefaultTableModel();
-        myTableModel.setColumnIdentifiers(tableHeaders); // Задание заголовков массивом
-        myTableModel.addRow(tableData); // Добавление строки с данными
+        mtm = new myTableModel(getSortArrTable());
 
-        myTable = new JTable(myTableModel);
+        myTable = new JTable(mtm);
         scrollPane = new JScrollPane(myTable);
         add(scrollPane, BorderLayout.CENTER);
 
         setVisible(true);
+        System.out.println(getSortArrTable().get(1).getDensity());
+    }
 
+    /**
+     * Метод получения массива c монолитами (ArrayList<MonolitData>) из БД, отсортированный по глубине
+     * с помощью класса MonolitDataComparator   */
+    public ArrayList<MonolitData> getSortArrTable() {
+
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        comparator = new MonolitDataComparator();
+        arrTable = new ArrayList<MonolitData>();
+
+        try {
+            conn = Conector.getconnDb();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(DATA);
+            //  Заполняем массив данными из БД
+            while (rs.next()) {
+                arrTable.add(new MonolitData(rs.getInt("ige"), rs.getDouble("depth"),
+                        rs.getDouble("mochnost"), rs.getDouble("water"), rs.getDouble("density")));
+            }
+
+
+
+        }
+        catch (SQLException sql) {System.out.println("Не получается построить arrTable из БД!!!");}
+
+        finally {
+            try {
+                if (conn != null) {conn.close();}
+                if (stmt != null) {stmt.close();}
+                if (rs != null) {rs.close();}
+            }
+            catch (SQLException exp) { System.out.println("Ошибка с закрытием conn, stmt, rs");}
+        }
+
+     //----------------Сортируем arrTable по возрастанию глубины------------------------
+
+        Collections.sort(arrTable, comparator);
+
+        return arrTable;
     }
 }

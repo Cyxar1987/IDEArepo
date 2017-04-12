@@ -7,8 +7,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        new Window();
-
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new Window();
+            }
 /*
         //   Переменная str - SQL-запрос
         String sql1 = "CREATE TABLE IF NOT EXISTS my_table " +
@@ -40,5 +42,6 @@ public class Main {
 
 
 */
-    }
+    });
+}
 }

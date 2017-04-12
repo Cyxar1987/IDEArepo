@@ -225,6 +225,7 @@ public class Window {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     //TODO
+                    new myTable();
 
                 }
             });

@@ -9,7 +9,6 @@ package geol_data;
 
 public class MonolitData {
 
-
         //  Номер ИГЭ в котором находится монолит
         private int numbEl;
 
@@ -42,29 +41,28 @@ public class MonolitData {
         //  Бытовое давление
         private double pbit;
 
+        //  Начальное просадочное давление
+        private double firstPressure;
 
-        //   -----------Конструктор класса---------------
-        public MonolitData(int n, double d, double m, double des, double w) {
-            setNumbEl(n);
-            setDepth(d);
-            setM(m);
-            setDensity(des);
-            setWater(w);
+
+        //   ----------- Конструктор класса ---------------
+        public MonolitData(int aNumbIEl, double aDepth, double aM, double aDensity, double aWater) {
+            setNumbEl(aNumbIEl);
+            setDepth(aDepth);
+            setM(aM);
+            setDensity(aDensity);
+            setWater(aWater);
+
+            /*
             setDensity_sg(SchetDensitySg(density, water));
             setDensity_08(SchetDensity_08(density_4g, density_sg));
             setPbit(SchetPbit(density_08, depth));
+            */
 
         }
 
-        //  Конструктор пробный
 
-        public MonolitData(int n, double water) {
-            setNumbEl(n);
-            setWater(water);
-        }
-
-
-    //  Сеттеры
+    //--------------------------  Сеттеры ------------------------------------
 
         public void setNumbEl(int NumbEl) {
             if (NumbEl > 0)
@@ -133,7 +131,8 @@ public class MonolitData {
                 pbit = 0;
     }
 
-    //  Геттеры
+
+    // ------------------------- Геттеры -----------------------------------
 
         public int getNumbEl() {
             return numbEl;
@@ -176,9 +175,8 @@ public class MonolitData {
             return pbit;
     }
 
-    //----------------------------------------------------------------
-    //----------------------   РАСЧЕТ   ------------------------------
-    //----------------------------------------------------------------
+
+    /** ---------------------- РАСЧЕТ -------------------------- */
 
         //  Расчет плотности сухого грунта
         private double SchetDensitySg(double des, double wat) {
@@ -193,8 +191,60 @@ public class MonolitData {
         }
 
         //  Расчет бытового давления
-        private double SchetPbit(double d_08, double d){
-            pbit = d_08 * d;
+        private double SchetPbit( ){
+
             return pbit;
+        }
+
+        //  Расчет начального просадочного давления
+    //  TODO доделать метод!!!
+        private double getFirstPressure(double [] Mass){
+
+            for (int i = 0; i < Mass.length; i++) {
+                if ( Mass[i] == 0.01) {
+                    firstPressure = Mass[i];
+                    break;
+                }
+                if ( Mass[i] > 0.01 ) {
+                    switch (i) {
+                        case 0:
+
+                            break;
+                    }
+                }
+            }
+            return firstPressure;
+        }
+
+        //  Метод для интерполяции между 2 числами
+    //  TODO    Дописать метод!!!
+        private double interpolation (int index, double limit_1, double limit_2, double numb) {
+            double result= 0;
+
+            switch (index) {
+                case 0:
+
+                    break;
+                case 1:
+
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+
+                    break;
+                case 4:
+
+                    break;
+                case 5:
+
+                    break;
+
+                default:
+                    result = 0;
+            }
+
+            return  result;
         }
     }
