@@ -18,7 +18,10 @@ public class MonolitData {
         //  массив данных с значениями относительной просадочности при нагрухках
         //  0,05 МПа    0,10 МПа   0,15 МПа   0,20 МПа   0,25 МПа   0,30 МПа
     private final static int j = 6;
-    private double[] mass = new double[j];
+    private double[] prosadka = new double[j];
+
+    //  Массив значений нагрузок
+    private final double [] ARR_LOAD = { 0.05,   0.10,   0.15,   0.20,   0.25,   0.30 };
 
         //  Мощность просадочного слоя
         private double m;
@@ -44,7 +47,8 @@ public class MonolitData {
         //  Начальное просадочное давление
         private double firstPressure;
 
-
+        // TODO Переписать конструктор на полный кроме бытового давления
+        // TODO
         //   ----------- Конструктор класса ---------------
         public MonolitData(int aNumbIEl, double aDepth, double aM, double aDensity, double aWater) {
             setNumbEl(aNumbIEl);
@@ -52,12 +56,6 @@ public class MonolitData {
             setM(aM);
             setDensity(aDensity);
             setWater(aWater);
-
-            /*
-            setDensity_sg(SchetDensitySg(density, water));
-            setDensity_08(SchetDensity_08(density_4g, density_sg));
-            setPbit(SchetPbit(density_08, depth));
-            */
 
         }
 
@@ -79,7 +77,7 @@ public class MonolitData {
         }
 
         public void setMass(int Param, double value) {
-            mass[Param] = value;
+            prosadka[Param] = value;
         }
 
         public void setM(double M) {
@@ -131,6 +129,10 @@ public class MonolitData {
                 pbit = 0;
     }
 
+        public void setFirstPressure(double firstPressure) {
+
+            this.firstPressure = firstPressure;
+        }
 
     // ------------------------- Геттеры -----------------------------------
 
@@ -142,9 +144,9 @@ public class MonolitData {
             return depth;
         }
 
-        public double getMass(int a) {
+        public double getProsadka(int a) {
 
-            return mass[a];
+            return prosadka[a];
         }
 
         public double getM() {
@@ -191,60 +193,48 @@ public class MonolitData {
         }
 
         //  Расчет бытового давления
+        // TODO
         private double SchetPbit( ){
 
             return pbit;
         }
 
         //  Расчет начального просадочного давления
-    //  TODO доделать метод!!!
-        private double getFirstPressure(double [] Mass){
+        private double SchetFirstPressure(double [] Mass){
+
+            double result = 0;
 
             for (int i = 0; i < Mass.length; i++) {
                 if ( Mass[i] == 0.01) {
-                    firstPressure = Mass[i];
+                    result = ARR_LOAD[i];
                     break;
                 }
                 if ( Mass[i] > 0.01 ) {
-                    switch (i) {
-                        case 0:
 
-                            break;
+                    result = interpolation (i, Mass[i]);
+                    break;
                     }
                 }
-            }
+                firstPressure = result;
             return firstPressure;
         }
 
-        //  Метод для интерполяции между 2 числами
-    //  TODO    Дописать метод!!!
-        private double interpolation (int index, double limit_1, double limit_2, double numb) {
-            double result= 0;
+        private double interpolation (int index, double numb) {
 
-            switch (index) {
-                case 0:
-
-                    break;
-                case 1:
-
-                    break;
-                case 2:
-
-                    break;
-                case 3:
-
-                    break;
-                case 4:
-
-                    break;
-                case 5:
-
-                    break;
-
-                default:
-                    result = 0;
+            double result = 0;
+            double d = 0;
+            if (index == 0) {
+                result = (0.010 * ARR_LOAD[0]) / numb;
             }
+            else if (index > 0 && index < prosadka.length) {
+                //  TODO протестить метод!
+                //  Расчтет приращения относительной просадочности за 0,05 МПа
+                d = prosadka[index] - prosadka[index - 1];
+                result = (((0.01 - prosadka[index - 1]) * 0.05) / d) + ARR_LOAD[index - 1];
+            }
+            else { result = 0; }
 
-            return  result;
+            return result;
         }
+
     }

@@ -102,6 +102,8 @@ public class myTableModel implements TableModel {
         }
     }
 
+
+
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
 

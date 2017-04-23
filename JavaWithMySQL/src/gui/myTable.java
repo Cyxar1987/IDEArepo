@@ -79,8 +79,6 @@ public class myTable extends JFrame {
                         rs.getDouble("mochnost"), rs.getDouble("water"), rs.getDouble("density")));
             }
 
-
-
         }
         catch (SQLException sql) {System.out.println("Не получается построить arrTable из БД!!!");}
 

@@ -11,6 +11,10 @@ public class Main {
             public void run() {
                 new Window();
             }
+
+
+
+
 /*
         //   Переменная str - SQL-запрос
         String sql1 = "CREATE TABLE IF NOT EXISTS my_table " +
