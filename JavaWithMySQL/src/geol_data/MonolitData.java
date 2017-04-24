@@ -76,7 +76,7 @@ public class MonolitData {
                 this.depth = 0;         //Сделать диалоговое окно с сообщенем о ошибке???
         }
 
-        public void setMass(int Param, double value) {
+        public void setProsadka (int Param, double value) {
             prosadka[Param] = value;
         }
 
@@ -122,17 +122,6 @@ public class MonolitData {
                 density_08 = 0;
     }
 
-        public void setPbit(double Pbit) {
-            if (Pbit > 0)
-                pbit = Pbit;
-            else
-                pbit = 0;
-    }
-
-        public void setFirstPressure(double firstPressure) {
-
-            this.firstPressure = firstPressure;
-        }
 
     // ------------------------- Геттеры -----------------------------------
 
@@ -144,9 +133,9 @@ public class MonolitData {
             return depth;
         }
 
-        public double getProsadka(int a) {
+        public double[] getProsadka() {
 
-            return prosadka[a];
+            return prosadka;
         }
 
         public double getM() {
