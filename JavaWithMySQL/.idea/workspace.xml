@@ -4,11 +4,6 @@
     <list default="true" id="70f08737-c1a7-4bb3-be3e-c30a103a2c52" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/JavaWithMySQL/main_code/Main.class" afterPath="$PROJECT_DIR$/out/production/JavaWithMySQL/main_code/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/geol_data/MonolitData.java" afterPath="$PROJECT_DIR$/src/geol_data/MonolitData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/Listmain.java" afterPath="$PROJECT_DIR$/src/gui/Listmain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/Window.java" afterPath="$PROJECT_DIR$/src/gui/Window.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/myTable.java" afterPath="$PROJECT_DIR$/src/gui/myTable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/myTableModel.java" afterPath="$PROJECT_DIR$/src/gui/myTableModel.java" />
     </list>
     <ignored path=".idea/" />
     <ignored path="out/" />
@@ -960,7 +955,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492976088344</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="смотри TODO в monolitdata">
+      <created>1493242648377</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1493242648377</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1059,7 +1061,8 @@
     <MESSAGE value="TableModel см." />
     <MESSAGE value="см TODOшки в myTableModel" />
     <MESSAGE value="переписать класс monolidata  и выделить новый!" />
-    <option name="LAST_COMMIT_MESSAGE" value="переписать класс monolidata  и выделить новый!" />
+    <MESSAGE value="смотри TODO в monolitdata" />
+    <option name="LAST_COMMIT_MESSAGE" value="смотри TODO в monolitdata" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
