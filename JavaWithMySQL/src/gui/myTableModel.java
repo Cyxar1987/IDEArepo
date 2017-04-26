@@ -5,7 +5,6 @@ import connDb.Conector;
 import geol_data.MonolitData;
 
 import javax.swing.event.TableModelListener;
-import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -92,10 +91,30 @@ public class myTableModel implements TableModel {
                 return monolit.getNumbEl();
             case 1:
                 return monolit.getDepth();
+            case 2:
+                return monolit.getProsadka()[0];
+            case 3:
+                return monolit.getProsadka()[1];
+            case 4:
+                return monolit.getProsadka()[2];
+            case 5:
+                return monolit.getProsadka()[3];
+            case 6:
+                return monolit.getProsadka()[4];
+            case 7:
+                return monolit.getProsadka()[5];
+            case 8:
+                return monolit.getStartPressure();
             case 9:
                 return monolit.getM();
             case 11:
                 return monolit.getDensity();
+            case 12:
+                return monolit.getDensity_08();
+            case 13:
+                return monolit.getPbit();
+            case 14:
+                return monolit.getOtnositProsadka();
 
             default:
                 return 0;

@@ -1,5 +1,6 @@
 package gui;
 
+import calculation.Prosadka;
 import connDb.Conector;
 import geol_data.MonolitData;
 
@@ -7,7 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.geom.Arc2D;
+import java.util.ArrayList;
+
 
 /**
         *   Класс главного фрейма  *
@@ -22,20 +24,22 @@ public class Window {
      **/
 
 
-        JFrame jfrm;
-        JPanel Mainpanel, Tablepanel;
-        JLabel igeLabel, depthLabel, mLabel, waterLabel, densityLabel,
+        private JFrame jfrm;
+        private JPanel Mainpanel;
+        private JLabel igeLabel, depthLabel, mLabel, waterLabel, densityLabel,
                prosLabel, label_005, label_010, label_015, label_020, label_025, label_030;
 
-         static JTextField igeJtf, depthJtf, mJtf, waterJtf, densityJtf,
+        static JTextField igeJtf, depthJtf, mJtf, waterJtf, densityJtf,
                    jtf_005, jtf_010, jtf_015, jtf_020, jtf_025, jtf_030;
 
-        JButton addButton, applyButton, calculationButton, edittButton;
+        private JButton addButton, applyButton, calculationButton, edittButton;
 
-        MonolitData monolit;
-        Listmain list;
+        private MonolitData monolit;
+        private Listmain list;
 
         public static int IdSelectDepth;
+
+        private ArrayList<MonolitData> arrayMonolit = new ArrayList();
 
 
 
@@ -179,10 +183,18 @@ public class Window {
                     double m = Double.parseDouble(mJtf.getText());
                     double wat = Double.parseDouble(waterJtf.getText());
                     double dens = Double.parseDouble(densityJtf.getText());
+                    double stage005 = Double.parseDouble(jtf_005.getText());
+                    double stage010 = Double.parseDouble(jtf_010.getText());
+                    double stage015 = Double.parseDouble(jtf_015.getText());
+                    double stage020 = Double.parseDouble(jtf_020.getText());
+                    double stage025 = Double.parseDouble(jtf_025.getText());
+                    double stage030 = Double.parseDouble(jtf_030.getText());
 
-                    String q = "INSERT INTO between_table (ige, depth, mochnost, water, density)" +
+                    String q = "INSERT INTO between_table (ige, depth, mochnost, water, density, stage005, " +
+                            "stage010, stage015, stage020, stage025, stage030)" +
                             "VALUES" +
-                            "(" + n + ", " + depth + ", " + m + ", " + wat + "," + dens + " )";
+                            "(" + n + ", " + depth + ", " + m + ", " + wat + "," + dens + "," + stage005 + ","
+                            + stage010 + "," + stage015 + "," + stage020 + "," + stage025 + "," + stage030 + ")";
 
                     Conector.myQuery(q);
 
@@ -207,6 +219,8 @@ public class Window {
                         double m = Double.parseDouble(mJtf.getText());
                         double wat = Double.parseDouble(waterJtf.getText());
                         double dens = Double.parseDouble(densityJtf.getText());
+                        // TODO исправить!
+                        //monolit = new MonolitData(n, depth, m, dens, wat, );
 
                         //  uppdate-запрос на изменение данных
                         String uppdateSQL = "UPDATE between_table " +
@@ -224,9 +238,7 @@ public class Window {
             calculationButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    //TODO
                     new myTable();
-
                 }
             });
 
@@ -240,6 +252,5 @@ public class Window {
 
                 }
             });
-
         }
 }

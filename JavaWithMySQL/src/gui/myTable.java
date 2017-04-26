@@ -56,7 +56,6 @@ public class myTable extends JFrame {
         add(scrollPane, BorderLayout.CENTER);
 
         setVisible(true);
-        System.out.println(getSortArrTable().get(1).getDensity());
     }
 
     /**
@@ -77,9 +76,10 @@ public class myTable extends JFrame {
             //  Заполняем массив данными из БД
             while (rs.next()) {
                 arrTable.add(new MonolitData(rs.getInt("ige"), rs.getDouble("depth"),
-                        rs.getDouble("mochnost"), rs.getDouble("water"), rs.getDouble("density")));
+                   rs.getDouble("mochnost"), rs.getDouble("water"), rs.getDouble("density"),
+                   new double[] {rs.getDouble("stage005"), rs.getDouble("stage010"), rs.getDouble("stage015"),
+                   rs.getDouble("stage020"),rs.getDouble("stage025"), rs.getDouble("stage030")}));
             }
-
         }
         catch (SQLException sql) {System.out.println("Не получается построить arrTable из БД!!!");}
 
@@ -98,6 +98,9 @@ public class myTable extends JFrame {
         Prosadka.SchetFirstPressure(arrTable);
         Prosadka.SchetPBit(arrTable);
         Prosadka.SchetOtnositProsad(arrTable);
+
+        System.out.println(arrTable.get(0).getPbit());
+        System.out.println(arrTable.get(1).getPbit());
 
         return arrTable;
     }
