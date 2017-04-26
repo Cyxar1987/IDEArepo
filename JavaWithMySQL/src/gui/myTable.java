@@ -1,18 +1,19 @@
 package gui;
 
 
+import calculation.Prosadka;
 import connDb.Conector;
 import geol_data.MonolitData;
 import geol_data.MonolitDataComparator;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
+
 
 /** Класс описывающий создание таблицы и  проведения расчета в ней просадки от собственного веса
  *  Данные будут получаться из БД*/
@@ -92,8 +93,11 @@ public class myTable extends JFrame {
         }
 
      //----------------Сортируем arrTable по возрастанию глубины------------------------
-
         Collections.sort(arrTable, comparator);
+
+        Prosadka.SchetFirstPressure(arrTable);
+        Prosadka.SchetPBit(arrTable);
+        Prosadka.SchetOtnositProsad(arrTable);
 
         return arrTable;
     }

@@ -4,7 +4,6 @@ package geol_data;
 
         Класс описывает монолит грунта и данные которые он может предоставить
 
-
     **/
 
 public class MonolitData {
@@ -17,11 +16,8 @@ public class MonolitData {
 
         //  массив данных с значениями относительной просадочности при нагрухках
         //  0,05 МПа    0,10 МПа   0,15 МПа   0,20 МПа   0,25 МПа   0,30 МПа
-    private final static int j = 6;
-    private double[] prosadka = new double[j];
-
-    //  Массив значений нагрузок
-    private final double [] ARR_LOAD = { 0.05,   0.10,   0.15,   0.20,   0.25,   0.30 };
+        private final int j = 6;
+        private double[] prosadka = new double[j];
 
         //  Мощность просадочного слоя
         private double m;
@@ -45,7 +41,13 @@ public class MonolitData {
         private double pbit;
 
         //  Начальное просадочное давление
-        private double firstPressure;
+        private double startPressure;
+
+        //  Относительная просадочность грунта при
+        //  полученном бытовом давлении
+        private double otnositProsadka;
+
+        private double pross;
 
         // TODO Переписать конструктор на полный кроме бытового давления
         // TODO
@@ -122,7 +124,21 @@ public class MonolitData {
                 density_08 = 0;
     }
 
+        public void setStartPressure(double startPressure) {
+        this.startPressure = startPressure;
+        }
 
+        public void setPbit(double pbit) {
+        this.pbit = pbit;
+        }
+
+        public void setOtnositProsadka(double otnositProsadka) {
+            this.otnositProsadka = otnositProsadka;
+        }
+
+        public void setPross(double pross) {
+            this.pross = pross;
+        }
     // ------------------------- Геттеры -----------------------------------
 
         public int getNumbEl() {
@@ -166,8 +182,18 @@ public class MonolitData {
             return pbit;
     }
 
+       public double getStartPressure() {
+            return startPressure;
+    }
 
-    /** ---------------------- РАСЧЕТ -------------------------- */
+        public double getOtnositProsadka() {
+            return otnositProsadka;
+        }
+
+        public double getPross() {
+            return pross;
+        }
+        /* ---------------------- РАСЧЕТ -------------------------- */
 
         //  Расчет плотности сухого грунта
         private double SchetDensitySg(double des, double wat) {
@@ -180,50 +206,4 @@ public class MonolitData {
             density_08 = ((((chg - sg)/(chg*sg))*0.8)+1)*sg;
             return density_08;
         }
-
-        //  Расчет бытового давления
-        // TODO
-        private double SchetPbit( ){
-
-            return pbit;
-        }
-
-        //  Расчет начального просадочного давления
-        private double SchetFirstPressure(double [] Mass){
-
-            double result = 0;
-
-            for (int i = 0; i < Mass.length; i++) {
-                if ( Mass[i] == 0.01) {
-                    result = ARR_LOAD[i];
-                    break;
-                }
-                if ( Mass[i] > 0.01 ) {
-
-                    result = interpolation (i, Mass[i]);
-                    break;
-                    }
-                }
-                firstPressure = result;
-            return firstPressure;
-        }
-
-        private double interpolation (int index, double numb) {
-
-            double result = 0;
-            double d = 0;
-            if (index == 0) {
-                result = (0.010 * ARR_LOAD[0]) / numb;
-            }
-            else if (index > 0 && index < prosadka.length) {
-                //  TODO протестить метод!
-                //  Расчтет приращения относительной просадочности за 0,05 МПа
-                d = prosadka[index] - prosadka[index - 1];
-                result = (((0.01 - prosadka[index - 1]) * 0.05) / d) + ARR_LOAD[index - 1];
-            }
-            else { result = 0; }
-
-            return result;
-        }
-
-    }
+}
