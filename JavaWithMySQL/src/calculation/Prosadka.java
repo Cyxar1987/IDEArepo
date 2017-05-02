@@ -3,6 +3,7 @@ package calculation;
 
 import geol_data.MonolitData;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 
@@ -70,11 +71,12 @@ public class Prosadka {
         for (int index = 0; index < array.size(); index++) {
             monolit = array.get(index);
             if (index == 0) {
-                result = monolit.getM() * monolit.getDensity_08();
+                result = (monolit.getM() * monolit.getDensity_08()) / 100;
             }
             else {
-                result = array.get(index-1).getPbit() + (monolit.getM() * monolit.getDensity_08());
+                result = (array.get(index-1).getPbit() + (monolit.getM() * monolit.getDensity_08()) / 100);
             }
+            result = new BigDecimal(result).setScale(5, BigDecimal.ROUND_HALF_UP).doubleValue();
             array.get(index).setPbit(result);
         }
     }
@@ -137,6 +139,7 @@ public class Prosadka {
                 else {
                     result = 0;
                 }
+                result = new BigDecimal(result).setScale(5, BigDecimal.ROUND_HALF_UP).doubleValue();
             monolit.setOtnositProsadka(result);
         }
     }
