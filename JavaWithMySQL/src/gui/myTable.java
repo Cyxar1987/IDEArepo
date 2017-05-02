@@ -5,7 +5,6 @@ import calculation.Prosadka;
 import connDb.Conector;
 import geol_data.MonolitData;
 import geol_data.MonolitDataComparator;
-
 import javax.swing.*;
 import java.awt.*;
 import java.sql.Connection;
@@ -78,7 +77,7 @@ public class myTable extends JFrame {
                 arrTable.add(new MonolitData(rs.getInt("ige"), rs.getDouble("depth"),
                    rs.getDouble("mochnost"), rs.getDouble("water"), rs.getDouble("density"),
                    new double[] {rs.getDouble("stage005"), rs.getDouble("stage010"), rs.getDouble("stage015"),
-                   rs.getDouble("stage020"),rs.getDouble("stage025"), rs.getDouble("stage030")}));
+                   rs.getDouble("stage020"),rs.getDouble("stage025"), rs.getDouble("stage030")}, rs.getDouble("density4g")));
             }
         }
         catch (SQLException sql) {System.out.println("Не получается построить arrTable из БД!!!");}
@@ -98,9 +97,6 @@ public class myTable extends JFrame {
         Prosadka.SchetFirstPressure(arrTable);
         Prosadka.SchetPBit(arrTable);
         Prosadka.SchetOtnositProsad(arrTable);
-
-        System.out.println(arrTable.get(0).getPbit());
-        System.out.println(arrTable.get(1).getPbit());
 
         return arrTable;
     }

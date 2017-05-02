@@ -52,14 +52,16 @@ public class MonolitData {
         // TODO Переписать конструктор на полный
         // TODO добавить плотность сухого грунта и плотность при степени влажности 0,8
         //   ----------- Конструктор класса ---------------
-        public MonolitData(int aNumbIEl, double aDepth, double aM, double aDensity, double aWater, double aProsadka[]) {
+        public MonolitData(int aNumbIEl, double aDepth, double aM,double aWater, double aDensity, double aProsadka[], double aDensity4g) {
             setNumbEl(aNumbIEl);
             setDepth(aDepth);
             setM(aM);
             setDensity(aDensity);
             setWater(aWater);
             setProsadka(aProsadka);
-
+            setDensity_4g(aDensity4g);
+            setDensity_sg(SchetDensitySg(aDensity, aWater));
+            setDensity_08(SchetDensity_08(aDensity4g, getDensity_sg()));
         }
 
 

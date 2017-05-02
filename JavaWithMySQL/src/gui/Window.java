@@ -27,9 +27,10 @@ public class Window {
         private JFrame jfrm;
         private JPanel Mainpanel;
         private JLabel igeLabel, depthLabel, mLabel, waterLabel, densityLabel,
-               prosLabel, label_005, label_010, label_015, label_020, label_025, label_030;
+               prosLabel, label_005, label_010, label_015, label_020, label_025, label_030,
+               density4gLabel;
 
-        static JTextField igeJtf, depthJtf, mJtf, waterJtf, densityJtf,
+        static JTextField igeJtf, depthJtf, mJtf, waterJtf, densityJtf, density4gJtf,
                    jtf_005, jtf_010, jtf_015, jtf_020, jtf_025, jtf_030;
 
         private JButton addButton, applyButton, calculationButton, edittButton;
@@ -62,6 +63,7 @@ public class Window {
             mLabel =new JLabel("moschnost");
             waterLabel =new JLabel("warter");
             densityLabel = new JLabel("density");
+            density4gLabel = new JLabel("density4g");
             label_005 = new JLabel("0.05 MPa");
             label_010 = new JLabel("0.10 MPa");
             label_015 = new JLabel("0.15 MPa");
@@ -76,6 +78,7 @@ public class Window {
             mJtf = new JTextField(3);
             waterJtf = new JTextField(5);
             densityJtf = new JTextField(5);
+            density4gJtf = new JTextField(5);
             jtf_005 = new JTextField(5);
             jtf_010 = new JTextField(5);
             jtf_015 = new JTextField(5);
@@ -170,6 +173,12 @@ public class Window {
             Mainpanel.add(edittButton, new GridBagConstraints(6,5,1,1,0,0,GridBagConstraints.WEST,GridBagConstraints.WEST,
                     new Insets(1, 40, 1, 5), 0, 0));
 
+            // Временно!!!!!!!!-----------------------------
+            Mainpanel.add(density4gLabel, new GridBagConstraints(3,7,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH,
+                    new Insets(10, 5, 5, 10), 0, 0));
+            Mainpanel.add(density4gJtf, new GridBagConstraints(4,7,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH,
+                    new Insets(10, 5, 5, 10), 0, 0));
+
 
             jfrm.setVisible(true);
 
@@ -183,6 +192,7 @@ public class Window {
                     double m = Double.parseDouble(mJtf.getText());
                     double wat = Double.parseDouble(waterJtf.getText());
                     double dens = Double.parseDouble(densityJtf.getText());
+                    double dens4g = Double.parseDouble(density4gJtf.getText());
                     double stage005 = Double.parseDouble(jtf_005.getText());
                     double stage010 = Double.parseDouble(jtf_010.getText());
                     double stage015 = Double.parseDouble(jtf_015.getText());
@@ -191,10 +201,10 @@ public class Window {
                     double stage030 = Double.parseDouble(jtf_030.getText());
 
                     String q = "INSERT INTO between_table (ige, depth, mochnost, water, density, stage005, " +
-                            "stage010, stage015, stage020, stage025, stage030)" +
+                            "stage010, stage015, stage020, stage025, stage030, density4g)" +
                             "VALUES" +
                             "(" + n + ", " + depth + ", " + m + ", " + wat + "," + dens + "," + stage005 + ","
-                            + stage010 + "," + stage015 + "," + stage020 + "," + stage025 + "," + stage030 + ")";
+                            + stage010 + "," + stage015 + "," + stage020 + "," + stage025 + "," + stage030 + "," + dens4g + ")";
 
                     Conector.myQuery(q);
 
@@ -205,6 +215,13 @@ public class Window {
                     mJtf.setText("");
                     waterJtf.setText("");
                     densityJtf.setText("");
+                    density4gJtf.setText("");
+                    jtf_005.setText("");
+                    jtf_010.setText("");
+                    jtf_015.setText("");
+                    jtf_020.setText("");
+                    jtf_025.setText("");
+                    jtf_030.setText("");
 
                 }
             });

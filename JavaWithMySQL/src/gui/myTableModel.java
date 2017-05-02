@@ -1,6 +1,7 @@
 package gui;
 
 
+import calculation.Prosadka;
 import connDb.Conector;
 import geol_data.MonolitData;
 
@@ -107,12 +108,15 @@ public class myTableModel implements TableModel {
                 return monolit.getStartPressure();
             case 9:
                 return monolit.getM();
+            case 10:
+                return monolit.getDensity_sg();
             case 11:
                 return monolit.getDensity();
             case 12:
                 return monolit.getDensity_08();
             case 13:
                 return monolit.getPbit();
+
             case 14:
                 return monolit.getOtnositProsadka();
 
