@@ -105,7 +105,6 @@ public class Listmain extends JPanel {
                                 }
                                 catch (SQLException exp) { System.out.println("Ошибка с закрытием conn, stmt, rs");}
                             }
-
                         }
                   }
               }

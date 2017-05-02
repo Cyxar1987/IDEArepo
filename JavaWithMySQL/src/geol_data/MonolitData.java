@@ -4,11 +4,9 @@ package geol_data;
 
         Класс описывает монолит грунта и данные которые он может предоставить
 
-
     **/
 
 public class MonolitData {
-
 
         //  Номер ИГЭ в котором находится монолит
         private int numbEl;
@@ -18,8 +16,8 @@ public class MonolitData {
 
         //  массив данных с значениями относительной просадочности при нагрухках
         //  0,05 МПа    0,10 МПа   0,15 МПа   0,20 МПа   0,25 МПа   0,30 МПа
-    private final static int j = 6;
-    private double[] mass = new double[j];
+        private final int j = 6;
+        private double[] prosadka = new double[j];
 
         //  Мощность просадочного слоя
         private double m;
@@ -42,29 +40,30 @@ public class MonolitData {
         //  Бытовое давление
         private double pbit;
 
+        //  Начальное просадочное давление
+        private double startPressure;
 
-        //   -----------Конструктор класса---------------
-        public MonolitData(int n, double d, double m, double des, double w) {
-            setNumbEl(n);
-            setDepth(d);
-            setM(m);
-            setDensity(des);
-            setWater(w);
-            setDensity_sg(SchetDensitySg(density, water));
-            setDensity_08(SchetDensity_08(density_4g, density_sg));
-            setPbit(SchetPbit(density_08, depth));
+        //  Относительная просадочность грунта при
+        //  полученном бытовом давлении
+        private double otnositProsadka;
+
+        private double pross;
+
+        // TODO Переписать конструктор на полный
+        // TODO добавить плотность сухого грунта и плотность при степени влажности 0,8
+        //   ----------- Конструктор класса ---------------
+        public MonolitData(int aNumbIEl, double aDepth, double aM, double aDensity, double aWater, double aProsadka[]) {
+            setNumbEl(aNumbIEl);
+            setDepth(aDepth);
+            setM(aM);
+            setDensity(aDensity);
+            setWater(aWater);
+            setProsadka(aProsadka);
 
         }
 
-        //  Конструктор пробный
 
-        public MonolitData(int n, double water) {
-            setNumbEl(n);
-            setWater(water);
-        }
-
-
-    //  Сеттеры
+    // --------------------------  Сеттеры ------------------------------------
 
         public void setNumbEl(int NumbEl) {
             if (NumbEl > 0)
@@ -80,9 +79,10 @@ public class MonolitData {
                 this.depth = 0;         //Сделать диалоговое окно с сообщенем о ошибке???
         }
 
-        public void setMass(int Param, double value) {
-            mass[Param] = value;
-        }
+        public void setProsadka(double[] prosadka) {
+
+            this.prosadka = prosadka;
+    }
 
         public void setM(double M) {
             if (M >= 0)
@@ -126,14 +126,23 @@ public class MonolitData {
                 density_08 = 0;
     }
 
-        public void setPbit(double Pbit) {
-            if (Pbit > 0)
-                pbit = Pbit;
-            else
-                pbit = 0;
-    }
+        public void setStartPressure(double startPressure) {
+        this.startPressure = startPressure;
+        }
 
-    //  Геттеры
+        public void setPbit(double pbit) {
+        this.pbit = pbit;
+        }
+
+        public void setOtnositProsadka(double otnositProsadka) {
+            this.otnositProsadka = otnositProsadka;
+        }
+
+        public void setPross(double pross) {
+            this.pross = pross;
+        }
+
+    // ------------------------- Геттеры -----------------------------------
 
         public int getNumbEl() {
             return numbEl;
@@ -143,9 +152,9 @@ public class MonolitData {
             return depth;
         }
 
-        public double getMass(int a) {
+        public double[] getProsadka() {
 
-            return mass[a];
+            return prosadka;
         }
 
         public double getM() {
@@ -176,9 +185,18 @@ public class MonolitData {
             return pbit;
     }
 
-    //----------------------------------------------------------------
-    //----------------------   РАСЧЕТ   ------------------------------
-    //----------------------------------------------------------------
+       public double getStartPressure() {
+            return startPressure;
+    }
+
+        public double getOtnositProsadka() {
+            return otnositProsadka;
+        }
+
+        public double getPross() {
+            return pross;
+        }
+        /* ---------------------- РАСЧЕТ -------------------------- */
 
         //  Расчет плотности сухого грунта
         private double SchetDensitySg(double des, double wat) {
@@ -191,10 +209,4 @@ public class MonolitData {
             density_08 = ((((chg - sg)/(chg*sg))*0.8)+1)*sg;
             return density_08;
         }
-
-        //  Расчет бытового давления
-        private double SchetPbit(double d_08, double d){
-            pbit = d_08 * d;
-            return pbit;
-        }
-    }
+}

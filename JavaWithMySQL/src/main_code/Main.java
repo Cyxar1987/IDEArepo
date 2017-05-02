@@ -7,7 +7,13 @@ public class Main {
 
     public static void main(String[] args) {
 
-        new Window();
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new Window();
+            }
+
+
+
 
 /*
         //   Переменная str - SQL-запрос
@@ -40,5 +46,6 @@ public class Main {
 
 
 */
-    }
+    });
+}
 }
