@@ -1,6 +1,5 @@
 package gui;
 
-import calculation.Prosadka;
 import connDb.Conector;
 import geol_data.MonolitData;
 
@@ -35,14 +34,11 @@ public class Window {
 
         private JButton addButton, applyButton, calculationButton, edittButton;
 
-        private MonolitData monolit;
         private Listmain list;
 
         public static int IdSelectDepth;
 
         private ArrayList<MonolitData> arrayMonolit = new ArrayList();
-
-
 
         //  Конструктор
         public Window()
@@ -55,7 +51,6 @@ public class Window {
             FlowLayout fl = new FlowLayout();
             GridBagLayout gb = new GridBagLayout();
             jfrm.setLayout(fl);
-
 
             prosLabel = new JLabel("Otnosit prosadka");
             igeLabel = new JLabel("№ IGE");
@@ -92,14 +87,11 @@ public class Window {
             calculationButton = new JButton("Calculation");
             edittButton = new JButton("Edit");
 
-
             Mainpanel = new JPanel(gb);
             Mainpanel.setBackground(Color.GRAY);
             Mainpanel.setPreferredSize(new Dimension(800, 450));
 
-
             jfrm.add(Mainpanel, 0);
-
 
             Mainpanel.add(igeLabel, new GridBagConstraints(0,0,1,1,0,0,GridBagConstraints.CENTER,GridBagConstraints.BOTH,
                     new Insets(5, 5, 5, 30), 0, 0));
@@ -236,12 +228,19 @@ public class Window {
                         double m = Double.parseDouble(mJtf.getText());
                         double wat = Double.parseDouble(waterJtf.getText());
                         double dens = Double.parseDouble(densityJtf.getText());
-                        // TODO исправить!
-                        //monolit = new MonolitData(n, depth, m, dens, wat, );
+                        double dens4g = Double.parseDouble(density4gJtf.getText());
+                        double stage005 = Double.parseDouble(jtf_005.getText());
+                        double stage010 = Double.parseDouble(jtf_010.getText());
+                        double stage015 = Double.parseDouble(jtf_015.getText());
+                        double stage020 = Double.parseDouble(jtf_020.getText());
+                        double stage025 = Double.parseDouble(jtf_025.getText());
+                        double stage030 = Double.parseDouble(jtf_030.getText());
 
                         //  uppdate-запрос на изменение данных
                         String uppdateSQL = "UPDATE between_table " +
-                                "SET ige = " + n + ", depth = " + depth + ", mochnost = " + m + ", water = " + wat + ", density = " + dens + " " +
+                                "SET ige = " + n + ", depth = " + depth + ", mochnost = " + m + ", water = " + wat + "," +
+                                " density = " + dens + ", density4g = " + dens4g + ", stage005 = " + stage005 + ", stage010 = " + stage010 +"," +
+                                " stage015 = " + stage015 + ", stage020 = " + stage020 +", stage025 = " + stage025 +", stage030 = " + stage030 +" " +
                                 "WHERE ID = " + IdSelectDepth;
 
                         Conector.myQuery(uppdateSQL);

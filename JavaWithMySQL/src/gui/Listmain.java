@@ -1,16 +1,14 @@
 package gui;
 
-import com.sun.security.auth.SolarisNumericUserPrincipal;
+
 import connDb.Conector;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
-import java.awt.event.WindowListener;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 public class Listmain extends JPanel {
@@ -88,6 +86,13 @@ public class Listmain extends JPanel {
                                         Window.mJtf.setText(String.valueOf(rs.getDouble("mochnost")));
                                         Window.waterJtf.setText(String.valueOf(rs.getDouble("water")));
                                         Window.densityJtf.setText(String.valueOf(rs.getDouble("density")));
+                                        Window.density4gJtf.setText(String.valueOf(rs.getDouble("density4g")));
+                                        Window.jtf_005.setText(String.valueOf(rs.getDouble("stage005")));
+                                        Window.jtf_010.setText(String.valueOf(rs.getDouble("stage010")));
+                                        Window.jtf_015.setText(String.valueOf(rs.getDouble("stage015")));
+                                        Window.jtf_020.setText(String.valueOf(rs.getDouble("stage020")));
+                                        Window.jtf_025.setText(String.valueOf(rs.getDouble("stage025")));
+                                        Window.jtf_030.setText(String.valueOf(rs.getDouble("stage030")));
 
                                         //  Cохраняем ID записи в статическую пременную
                                         Window.IdSelectDepth = rs.getInt("ID");

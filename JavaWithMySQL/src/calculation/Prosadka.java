@@ -2,8 +2,6 @@ package calculation;
 
 
 import geol_data.MonolitData;
-
-import java.math.BigDecimal;
 import java.util.ArrayList;
 
 
@@ -76,7 +74,6 @@ public class Prosadka {
             else {
                 result = (array.get(index-1).getPbit() + (monolit.getM() * monolit.getDensity_08()) / 100);
             }
-            result = new BigDecimal(result).setScale(5, BigDecimal.ROUND_HALF_UP).doubleValue();
             array.get(index).setPbit(result);
         }
     }
@@ -85,7 +82,7 @@ public class Prosadka {
         для каждого объекта (монолита) в массиве array */
     public static void SchetOtnositProsad (ArrayList<MonolitData> array) {
         MonolitData monolit;
-        double result = 0;
+        double result;
         double stage = 0.05;    // Cтупень нагрузки 0.05 МПа
         double delta;           // Приращение просадки за ступень нагрузки 0.05
 
@@ -110,36 +107,35 @@ public class Prosadka {
                 //  ---------- Интерполяция между 0.05 - 0.10 МПа ----------
                 else if (monolit.getPbit() > ARR_LOAD[0] && monolit.getPbit() < ARR_LOAD[1]) {
                     delta = prosadka[1] - prosadka[0];
-                    result = (((monolit.getPbit() - ARR_LOAD[0]) * delta) / stage) + ARR_LOAD[0];
+                    result = (((monolit.getPbit() - ARR_LOAD[0]) * delta) / stage) + prosadka[0];
                 }
 
                 //  --------------- Интерполяция между 0.10 - 0.15 МПа ---------------
                 else if (monolit.getPbit() > ARR_LOAD[1] && monolit.getPbit() < ARR_LOAD[2]) {
                     delta = prosadka[2] - prosadka[1];
-                    result = (((monolit.getPbit() - ARR_LOAD[1]) * delta) / stage) + ARR_LOAD[1];
+                    result = (((monolit.getPbit() - ARR_LOAD[1]) * delta) / stage) + prosadka[1];
                 }
 
                 //  --------------- Интерполяция между 0.15 - 0.20 МПа ---------------
                 else if (monolit.getPbit() > ARR_LOAD[2] && monolit.getPbit() < ARR_LOAD[3]) {
                     delta = prosadka[3] - prosadka[2];
-                    result = (((monolit.getPbit() - ARR_LOAD[2]) * delta) / stage) + ARR_LOAD[2];
+                    result = (((monolit.getPbit() - ARR_LOAD[2]) * delta) / stage) + prosadka[2];
                 }
 
                 //  --------------- Интерполяция между 0.20 - 0.25 МПа ---------------
                 else if (monolit.getPbit() > ARR_LOAD[3] && monolit.getPbit() < ARR_LOAD[4]) {
                     delta = prosadka[4] - prosadka[3];
-                    result = (((monolit.getPbit() - ARR_LOAD[3]) * delta) / stage) + ARR_LOAD[3];
+                    result = (((monolit.getPbit() - ARR_LOAD[3]) * delta) / stage) + prosadka[3];
                 }
 
                 //  --------------- Интерполяция между 0.25 - 0.30 МПа ---------------
-                else if (monolit.getPbit() > ARR_LOAD[4] && monolit.getPbit() < ARR_LOAD[5]) {
+                else if (monolit.getPbit() > ARR_LOAD[4] && monolit.getPbit() < prosadka[5]) {
                     delta = prosadka[5] - prosadka[4];
-                    result = (((monolit.getPbit() - ARR_LOAD[4]) * delta) / stage) + ARR_LOAD[4];
+                    result = (((monolit.getPbit() - ARR_LOAD[4]) * delta) / stage) + prosadka[4];
                 }
                 else {
                     result = 0;
                 }
-                result = new BigDecimal(result).setScale(5, BigDecimal.ROUND_HALF_UP).doubleValue();
             monolit.setOtnositProsadka(result);
         }
     }

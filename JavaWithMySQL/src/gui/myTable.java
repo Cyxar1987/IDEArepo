@@ -42,7 +42,7 @@ public class myTable extends JFrame {
 
         setTitle("Prossadka");
         setLocationRelativeTo(null);
-        setSize(800, 450);
+        setSize(1200, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         BorderLayout bd = new BorderLayout();
 

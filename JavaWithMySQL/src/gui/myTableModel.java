@@ -1,12 +1,12 @@
 package gui;
 
 
-import calculation.Prosadka;
+
 import connDb.Conector;
 import geol_data.MonolitData;
-
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,10 +18,11 @@ public class myTableModel implements TableModel {
     private final String ALL_DATA = "SELECT * FROM between_table";
 
 
-    private final String [] tableHeaders = {"Number ige", "Depth monolit", "Work load 0.05", "Work load 0.10",
-            "Work load 0.15", "Work load 0.20","Work load 0.25", "Work load 0.30",
-            "Starting pressure", "Mochnost pros sloia", "Density SG", "Density real",
-            "Density 0.8", "Litology pressure", "Otnosit prossadka", "Prosadka"};
+    private final String [] tableHeaders = {"<html> Number <br> ige <html> ", "<html>Depth <br>monolit<html>", "<html>Work load <br>0.05<html>",
+            "<html>Work load <br>0.10<html>", "<html>Work load <br>0.15<html>", "<html>Work load <br>0.20<html>",
+            "<html>Work load <br>0.25<html>", "<html>Work load <br>0.30<html>", "<html>Starting <br>pressure<html>",
+            "<html>Mochnost <br>pros sloia<html>", "Density SG", "<html>Density <br>real<html>",
+            "Density 0.8", "<html>Litology <br>pressure<html>", "<html>Otnosit <br>prossadka<html>", "Prosadka"};
 
     private ArrayList<MonolitData> arrMonolit;
 
@@ -75,7 +76,7 @@ public class myTableModel implements TableModel {
             if (columnIndex == 0)
                 return Integer.class;
             else
-                return Double.class;
+                return BigDecimal.class;
     }
 
     @Override   // реализован!
@@ -84,48 +85,47 @@ public class myTableModel implements TableModel {
     }
 
     //  Метод заполняет таблицу данными!
-    @Override   // TODO
+    @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         MonolitData monolit = arrMonolit.get(rowIndex);
+        double result;
         switch (columnIndex){
             case 0:
                 return monolit.getNumbEl();
             case 1:
-                return monolit.getDepth();
+                return new BigDecimal(monolit.getDepth()).setScale(1, BigDecimal.ROUND_HALF_UP);
             case 2:
-                return monolit.getProsadka()[0];
+                return new BigDecimal(monolit.getProsadka()[0]).setScale(3, BigDecimal.ROUND_HALF_UP);
             case 3:
-                return monolit.getProsadka()[1];
+                return new BigDecimal(monolit.getProsadka()[1]).setScale(3, BigDecimal.ROUND_HALF_UP);
             case 4:
-                return monolit.getProsadka()[2];
+                return new BigDecimal(monolit.getProsadka()[2]).setScale(3, BigDecimal.ROUND_HALF_UP);
             case 5:
-                return monolit.getProsadka()[3];
+                return new BigDecimal(monolit.getProsadka()[3]).setScale(3, BigDecimal.ROUND_HALF_UP);
             case 6:
-                return monolit.getProsadka()[4];
+                return new BigDecimal(monolit.getProsadka()[4]).setScale(3, BigDecimal.ROUND_HALF_UP);
             case 7:
-                return monolit.getProsadka()[5];
+                return new BigDecimal(monolit.getProsadka()[5]).setScale(3, BigDecimal.ROUND_HALF_UP);
             case 8:
-                return monolit.getStartPressure();
+                return new BigDecimal(monolit.getStartPressure()).setScale(3, BigDecimal.ROUND_HALF_UP);
             case 9:
-                return monolit.getM();
+                return new BigDecimal(monolit.getM()).setScale(2, BigDecimal.ROUND_HALF_UP);
             case 10:
-                return monolit.getDensity_sg();
+                return new BigDecimal(monolit.getDensity_sg()).setScale(2, BigDecimal.ROUND_HALF_UP);
             case 11:
-                return monolit.getDensity();
+                return new BigDecimal(monolit.getDensity()).setScale(2, BigDecimal.ROUND_HALF_UP);
             case 12:
-                return monolit.getDensity_08();
+                return new BigDecimal(monolit.getDensity_08()).setScale(2, BigDecimal.ROUND_HALF_UP);
             case 13:
-                return monolit.getPbit();
+                return new BigDecimal(monolit.getPbit()).setScale(4, BigDecimal.ROUND_HALF_UP);
 
             case 14:
-                return monolit.getOtnositProsadka();
+                return new BigDecimal(monolit.getOtnositProsadka()).setScale(4, BigDecimal.ROUND_HALF_UP);
 
             default:
                 return 0;
         }
     }
-
-
 
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
@@ -140,6 +140,4 @@ public class myTableModel implements TableModel {
     public void removeTableModelListener(TableModelListener l) {
 
     }
-
-
 }

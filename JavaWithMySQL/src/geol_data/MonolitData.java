@@ -49,8 +49,6 @@ public class MonolitData {
 
         private double pross;
 
-        // TODO Переписать конструктор на полный
-        // TODO добавить плотность сухого грунта и плотность при степени влажности 0,8
         //   ----------- Конструктор класса ---------------
         public MonolitData(int aNumbIEl, double aDepth, double aM,double aWater, double aDensity, double aProsadka[], double aDensity4g) {
             setNumbEl(aNumbIEl);
@@ -75,10 +73,11 @@ public class MonolitData {
         }
 
         public void setDepth(double Depth) {
-            if (Depth > 0)
+            if (Depth > 0) {
                 depth = Depth;
+            }
             else
-                this.depth = 0;         //Сделать диалоговое окно с сообщенем о ошибке???
+                depth = 0;         //Сделать диалоговое окно с сообщенем о ошибке???
         }
 
         public void setProsadka(double[] prosadka) {
